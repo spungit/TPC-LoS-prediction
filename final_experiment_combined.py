@@ -1268,10 +1268,10 @@ class ExperimentTemplate():
             padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
 
             # save sample from batch
-            if batch_idx == 0:
+            if batch_idx in [0, 1]:
                 padded_sample = padded[0,:,:].detach().cpu().numpy()
                 df = pd.DataFrame(padded_sample)
-                df.to_csv('padded_sample.csv')
+                df.to_csv(f'padded_sample_{batch_idx}.csv')
 
             self.optimiser.zero_grad()
             y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
