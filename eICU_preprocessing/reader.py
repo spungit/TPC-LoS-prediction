@@ -92,5 +92,5 @@ class eICUReader(object):
                        seq_lengths - time_before_pred)
 
 if __name__=='__main__':
-    eICU_reader = eICUReader('/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/train')
+    eICU_reader = eICUReader('B:/Datasets/eICU_TPC/data/train')
     print(next(eICU_reader.batch_gen()))

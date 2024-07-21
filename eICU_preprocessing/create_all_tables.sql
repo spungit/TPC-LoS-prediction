@@ -1,7 +1,7 @@
 -- creates all the tables and produces csv files
 -- takes a while to run (about an hour)
 
--- change the paths to those in your local computer using find and replace for '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/'.
+-- change the paths to those in your local computer using find and replace for 'B:/Datasets/eICU_TPC/data/'.
 -- keep the file names the same
 
 \i eICU_preprocessing/labels.sql
@@ -30,11 +30,11 @@ create materialized view ld_timeseries_patients as
   select distinct patientunitstayid
     from repeats;
 
-\copy (select * from ld_labels as l where l.patientunitstayid in (select * from ld_timeseries_patients)) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/labels.csv' with csv header
-\copy (select * from ld_diagnoses as d where d.patientunitstayid in (select * from ld_timeseries_patients)) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/diagnoses.csv' with csv header
-\copy (select * from ld_flat as f where f.patientunitstayid in (select * from ld_timeseries_patients)) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/flat_features.csv' with csv header
-\copy (select * from ld_timeserieslab) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/timeserieslab.csv' with csv header
-\copy (select * from ld_timeseriesresp) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/timeseriesresp.csv' with csv header
-\copy (select * from ld_timeseriesnurse) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/timeseriesnurse.csv' with csv header
-\copy (select * from ld_timeseriesperiodic) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/timeseriesperiodic.csv' with csv header
-\copy (select * from ld_timeseriesaperiodic) to '/Users/emmarocheteau/PycharmProjects/TPC-LoS-prediction/eICU_data/timeseriesaperiodic.csv' with csv header
+\copy (select * from ld_labels as l where l.patientunitstayid in (select * from ld_timeseries_patients)) to 'B:/Datasets/eICU_TPC/data/labels.csv' with csv header
+\copy (select * from ld_diagnoses as d where d.patientunitstayid in (select * from ld_timeseries_patients)) to 'B:/Datasets/eICU_TPC/data/diagnoses.csv' with csv header
+\copy (select * from ld_flat as f where f.patientunitstayid in (select * from ld_timeseries_patients)) to 'B:/Datasets/eICU_TPC/data/flat_features.csv' with csv header
+\copy (select * from ld_timeserieslab) to 'B:/Datasets/eICU_TPC/data/timeserieslab.csv' with csv header
+\copy (select * from ld_timeseriesresp) to 'B:/Datasets/eICU_TPC/data/timeseriesresp.csv' with csv header
+\copy (select * from ld_timeseriesnurse) to 'B:/Datasets/eICU_TPC/data/timeseriesnurse.csv' with csv header
+\copy (select * from ld_timeseriesperiodic) to 'B:/Datasets/eICU_TPC/data/timeseriesperiodic.csv' with csv header
+\copy (select * from ld_timeseriesaperiodic) to 'B:/Datasets/eICU_TPC/data/timeseriesaperiodic.csv' with csv header
