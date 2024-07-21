@@ -1267,6 +1267,11 @@ class ExperimentTemplate():
 
             padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
 
+            # save sample from batch
+            if batch_idx == 0:
+                padded_sample = padded[0,:,:]
+                padded_sample.to_csv('padded_sample.csv')
+
             self.optimiser.zero_grad()
             y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
             loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
