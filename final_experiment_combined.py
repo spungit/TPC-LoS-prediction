@@ -6,6 +6,7 @@ import json
 import numpy as np
 import pandas as pd
 from sklearn import metrics
+from itertools import groupby, islice
 
 import torch
 import torch.nn as nn
@@ -13,6 +14,7 @@ from torch import cat, exp
 import torch.nn.functional as F
 from torch.nn.functional import pad
 from torch.nn.modules.batchnorm import _BatchNorm
+from torch.optim import Adam
 
 from eICU_preprocessing.split_train_test import process_table, shuffle_stays
 
@@ -38,7 +40,6 @@ class MSLELoss(nn.Module):
         if not sum_losses:
             loss = loss / seq_length.clamp(min=1)
         return loss.mean()
-
 
 # Mean Squared Error (MSE) loss
 class MSELoss(nn.Module):
@@ -1073,8 +1074,7 @@ class Transformer(nn.Module):
             # multitask loss
             if self.task == 'multitask':
                 loss = los_loss + self.bce_loss(y_hat_mort, y_mort) * self.alpha
-        return loss
-    
+        return loss    
 
 ###################################### METRICS ######################################
 
@@ -1192,9 +1192,7 @@ def shuffle_train(train_path):
 
 class ExperimentTemplate():
 
-    def setup_template(self, config, datareader):
-        self.datareader = datareader
-
+    def __init__(self, config, model_name):
         self.device = torch.device('cpu')
         # set bool type for where statements
         self.bool_type = torch.cuda.BoolTensor if self.device == torch.device('cuda') else torch.BoolTensor
@@ -1203,12 +1201,19 @@ class ExperimentTemplate():
         self.labs_only = config.labs_only
         self.no_labs = config.no_labs
         self.batch_size = config.batch_size
+        self.batch_size_test = config.batch_size_test
         self.percentage_data = config.percentage_data
         self.shuffle_train = config.shuffle_train
         self.task = config.task
+        self.log_interval = config.log_interval
+        self.learning_rate = config.learning_rate
+        self.L2_regularisation = config.L2_regularisation
+        self.sum_losses = config.sum_losses
+        self.loss = config.loss_type
 
         # get datareader
-        self.data_path = eICU_path
+        self.data_path = config.eICU_path
+        self.datareader = eICUReader
         self.train_datareader = self.datareader(self.data_path + 'train', device=self.device,
                                            labs_only=self.labs_only, no_labs=self.no_labs)
         self.val_datareader = self.datareader(self.data_path + 'val', device=self.device,
@@ -1220,21 +1225,34 @@ class ExperimentTemplate():
         # set up model and run params
         self.checkpoint_counter = 0
 
-        self.model = None
-        self.optimiser = None
-
-        self.loss = 0
-        self.sum_losses = config.sum_losses
+        if model_name == 'LSTM':
+            self.model = BaseLSTM(config=config,
+                              F=self.train_datareader.F,
+                              D=self.train_datareader.D,
+                              no_flat_features=self.train_datareader.no_flat_features).to(device=self.device)
+        elif model_name == 'Transformer':
+            self.model = Transformer(config=config,
+                            F=self.train_datareader.F,
+                            D=self.train_datareader.D,
+                            no_flat_features=self.train_datareader.no_flat_features,
+                            device=self.device).to(device=self.device)
+        elif model_name == 'TPC':
+            self.model = TempPointConv(config=config,
+                                   F=self.train_datareader.F,
+                                   D=self.train_datareader.D,
+                                   no_flat_features=self.train_datareader.no_flat_features).to(device=self.device)
+        self.optimiser = Adam(self.model.parameters(), lr=self.learning_rate, weight_decay=self.L2_regularisation)
 
         self.remove_padding = lambda y, mask: remove_padding(y, mask, device=self.device)
 
         return
 
     def train(self, epoch, mort_pred_time=24):
-
+        print('Number of training batches: {}'.format(self.no_train_batches))
+        
         self.model.train()
         if epoch > 0 and self.shuffle_train:
-            shuffle_train(self.eICU_path + 'train')  # shuffle the order of the training data to make the batches different, this takes a bit of time
+            shuffle_train(self.data_path + 'train')  # shuffle the order of the training data to make the batches different, this takes a bit of time
         train_batches = self.train_datareader.batch_gen(batch_size=self.batch_size)
         train_loss = []
         train_y_hat_los = np.array([])
@@ -1267,24 +1285,19 @@ class ExperimentTemplate():
                 train_y_mort = np.append(train_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
                                                                            mask.type(self.bool_type)[:, mort_pred_time]))
 
-            if self.intermediate_reporting and batch_idx % self.log_interval == 0 and batch_idx != 0:
+            mean_loss_report = sum(train_loss[(batch_idx - self.log_interval):-1]) / self.log_interval
+            print('Epoch: {} [{:5.0f}/{:5.0f} samples] | train loss: {:3.4f}'.format(epoch,
+                                                                         batch_idx * self.batch_size,
+                                                                         batch_idx * self.no_train_batches,
+                                                                         mean_loss_report))
 
-                mean_loss_report = sum(train_loss[(batch_idx - self.log_interval):-1]) / self.log_interval
-                print('Epoch: {} [{:5d}/{:5d} samples] | train loss: {:3.4f}'.format(epoch,
-                                                                                      batch_idx * self.batch_size,
-                                                                                      batch_idx * self.no_train_batches,
-                                                                                      mean_loss_report))
-                self.checkpoint_counter += 1
-
-        if not self.intermediate_reporting and self.mode == 'train':
-
-            print('Train Metrics:')
-            mean_train_loss = sum(train_loss) / len(train_loss)
-            if self.task in ('LoS', 'multitask'):
-                print_metrics_regression(train_y_los, train_y_hat_los) # order: mad, mse, mape, msle, r2, kappa
-            if self.task in ('mortality', 'multitask'):
-                print_metrics_mortality(train_y_mort, train_y_hat_mort)
-            print('Epoch: {} | Train Loss: {:3.4f}'.format(epoch, mean_train_loss))
+        print('Train Metrics:')
+        mean_train_loss = sum(train_loss) / len(train_loss)
+        if self.task in ('LoS', 'multitask'):
+            print_metrics_regression(train_y_los, train_y_hat_los) # order: mad, mse, mape, msle, r2, kappa
+        if self.task in ('mortality', 'multitask'):
+            print_metrics_mortality(train_y_mort, train_y_hat_mort)
+        print('Epoch: {} | Train Loss: {:3.4f}'.format(epoch, mean_train_loss))
 
         return
 
@@ -1369,22 +1382,196 @@ class ExperimentTemplate():
         print('Test Loss: {:3.4f}'.format(mean_test_loss))
 
 ###################################### DATA LOADER ######################################
+# bit hacky but passes checks and I don't have time to implement a neater solution
+lab_indices = [0, 1, 2, 3, 4, 5, 6, 7, 8, 13, 15, 16, 18, 21, 22, 23, 24, 29, 32, 33, 34, 39, 40, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 60, 62, 63, 67, 68, 69, 70, 71, 72, 75, 83, 84, 86]
+labs_to_keep = [0] + [(i + 1) for i in lab_indices] + [(i + 88) for i in lab_indices] + [-1]
+no_lab_indices = list(range(87))
+no_lab_indices = [x for x in no_lab_indices if x not in lab_indices]
+no_labs_to_keep = [0] + [(i + 1) for i in no_lab_indices] + [(i + 88) for i in no_lab_indices] + [-1]
 
+
+class eICUReader(object):
+
+    def __init__(self, data_path, device=None, labs_only=False, no_labs=False):
+        self._diagnoses_path = data_path + '/diagnoses.csv'
+        self._labels_path = data_path + '/labels.csv'
+        self._flat_path = data_path + '/flat.csv'
+        self._timeseries_path = data_path + '/timeseries.csv'
+        self._device = device
+        self.labs_only = labs_only
+        self.no_labs = no_labs
+        self._dtype = torch.cuda.FloatTensor if device.type == 'cuda' else torch.FloatTensor
+
+        self.labels = pd.read_csv(self._labels_path, index_col='patient')
+        self.flat = pd.read_csv(self._flat_path, index_col='patient')
+        self.diagnoses = pd.read_csv(self._diagnoses_path, index_col='patient')
+
+        # we minus 2 to calculate F because hour and time are not features for convolution
+        self.F = (pd.read_csv(self._timeseries_path, index_col='patient', nrows=1).shape[1] - 2)//2
+        self.D = self.diagnoses.shape[1]
+        self.no_flat_features = self.flat.shape[1]
+
+        self.patients = list(self.labels.index)
+        self.no_patients = len(self.patients)
+
+    def line_split(self, line):
+        return [float(x) for x in line.split(',')]
+
+    def pad_sequences(self, ts_batch):
+        seq_lengths = [len(x) for x in ts_batch]
+        max_len = max(seq_lengths)
+        padded = [patient + [[0] * (self.F * 2 + 2)] * (max_len - len(patient)) for patient in ts_batch]
+        if self.labs_only:
+            padded = np.array(padded)
+            padded = padded[:, :, labs_to_keep]
+        if self.no_labs:
+            padded = np.array(padded)
+            padded = padded[:, :, no_labs_to_keep]
+        padded = torch.tensor(padded, device=self._device).type(self._dtype).permute(0, 2, 1)  # B * (2F + 2) * T
+        padded[:, 0, :] /= 24  # scale the time into days instead of hours
+        mask = torch.zeros(padded[:, 0, :].shape, device=self._device).type(self._dtype)
+        for p, l in enumerate(seq_lengths):
+            mask[p, :l] = 1
+        return padded, mask, torch.tensor(seq_lengths).type(self._dtype)
+
+    def get_los_labels(self, labels, times, mask):
+        times = labels.unsqueeze(1).repeat(1, times.shape[1]) - times
+        # clamp any labels that are less than 30 mins otherwise it becomes too small when the log is taken
+        # make sure where there is no data the label is 0
+        return (times.clamp(min=1/48) * mask)
+
+    def get_mort_labels(self, labels, length):
+        repeated_labels = labels.unsqueeze(1).repeat(1, length)
+        return repeated_labels
+
+    def batch_gen(self, batch_size=8, time_before_pred=5):
+
+        # note that once the generator is finished, the file will be closed automatically
+        with open(self._timeseries_path, 'r') as timeseries_file:
+            # the first line is the feature names; we have to skip over this
+            self.timeseries_header = next(timeseries_file).strip().split(',')
+            # this produces a generator that returns a list of batch_size patient identifiers
+            patient_batches = (self.patients[pos:pos + batch_size] for pos in range(0, len(self.patients), batch_size))
+            # create a generator to capture a single patient timeseries
+            ts_patient = groupby(map(self.line_split, timeseries_file), key=lambda line: line[0])
+            # we loop through these batches, tracking the index because we need it to index the pandas dataframes
+            for i, batch in enumerate(patient_batches):
+                ts_batch = [[line[1:] for line in ts] for _, ts in islice(ts_patient, batch_size)]
+                padded, mask, seq_lengths = self.pad_sequences(ts_batch)
+                los_labels = self.get_los_labels(torch.tensor(self.labels.iloc[i*batch_size:(i+1)*batch_size,7].values, device=self._device).type(self._dtype), padded[:,0,:], mask)
+                mort_labels = self.get_mort_labels(torch.tensor(self.labels.iloc[i*batch_size:(i+1)*batch_size,5].values, device=self._device).type(self._dtype), length=mask.shape[1])
+
+                # we must avoid taking data before time_before_pred hours to avoid diagnoses and apache variable from the future
+                yield (padded,  # B * (2F + 2) * T
+                       mask[:, time_before_pred:],  # B * (T - time_before_pred)
+                       torch.tensor(self.diagnoses.iloc[i*batch_size:(i+1)*batch_size].values, device=self._device).type(self._dtype),  # B * D
+                       torch.tensor(self.flat.iloc[i*batch_size:(i+1)*batch_size].values.astype(float), device=self._device).type(self._dtype),  # B * no_flat_features
+                       los_labels[:, time_before_pred:],
+                       mort_labels[:, time_before_pred:],
+                       seq_lengths - time_before_pred)
 
 ###################################### MAIN + SET PARAMS ######################################
+class Configuration:
+    def __init__(self, model_name):
+        self.task = 'mortality'
+        self.loss_type = 'msle'
+        self.labs_only = False
+        self.no_mask = False
+        self.no_diag = False
+        self.no_labs = False
+        self.no_exp = False
+        self.batchnorm = 'mybatchnorm'
+        self.shuffle_train = True
+        self.percentage_data = 100.0
+        self.alpha = 100
+        self.main_dropout_rate = 0.45
+        self.L2_regularisation = 0
+        self.last_linear_size = 17
+        self.diagnosis_size = 64
+        self.eICU_path = eICU_path
+        self.no_diag = False
+        self.log_interval = 100
+        self.sum_losses = True
+
+        if model_name == 'LSTM':
+            self.n_epochs = 8
+            self.batch_size = 512
+            self.batch_size_test = 32
+            self.n_layers = 2
+            self.hidden_size = 128
+            self.learning_rate = 0.00129
+            self.lstm_dropout_rate = 0.2
+            self.bidirectional = False
+            self.channelwise = False
+        elif model_name == 'Transformer':
+            self.n_epochs = 15
+            self.batch_size = 32
+            self.n_layers = 6
+            self.feedforward_size = 256
+            self.d_model = 16
+            self.n_heads = 2
+            self.learning_rate = 0.00017
+            self.trans_dropout_rate = 0
+            self.positional_encoding = True
+        elif model_name == 'TPC':
+            self.n_epochs = 15
+            self.batch_size = 32
+            self.n_layers = 9
+            self.kernel_size = 4
+            self.no_temp_kernels = 12
+            self.point_size = 13
+            self.learning_rate = 0.00226
+            self.temp_dropout_rate = 0.05
+            self.share_weights = False
+            self.no_skip_connections = False
+            self.temp_kernels = [self.no_temp_kernels]*self.n_layers
+            self.point_sizes = [self.point_size]*self.n_layers
+
+
+def print_attributes(obj):
+    for attribute_name in dir(obj):
+        if not attribute_name.startswith('__'):
+            attribute = getattr(obj, attribute_name)
+            if not callable(attribute):
+                print(f'{attribute_name}: {attribute}')
+
 if __name__ == '__main__':
 
     with open('paths.json', 'r') as f:
         eICU_path = json.load(f)["eICU_path"]
 
     ## RUN LSTM
-    config = {
+    config = Configuration(model_name='LSTM')
+    print_attributes(config)
 
-    }
+    lstm_experiment = ExperimentTemplate(config=config, model_name='LSTM')
+    print_attributes(lstm_experiment)
 
-    print('\nPARAMETERS: ', config)
-
+    for epoch in range(config.n_epochs):
+        lstm_experiment.train(epoch)
+        lstm_experiment.validate(epoch)
+    lstm_experiment.test()
 
     ## RUN TRANSFORMER
+    config = Configuration(model_name='Transformer')
+    print_attributes(config)
+
+    transformer_experiment = ExperimentTemplate(config=config, model_name='Transformer')
+    print_attributes(transformer_experiment)
+
+    for epoch in range(config.n_epochs):
+        transformer_experiment.train(epoch)
+        transformer_experiment.validate(epoch)
+    transformer_experiment.test()
 
     ## RUN TPC
+    config = Configuration(model_name='TPC')
+    print_attributes(config)
+    
+    tpc_experiment = ExperimentTemplate(config=config, model_name='TPC')
+    print_attributes(tpc_experiment)
+
+    for epoch in range(config.n_epochs):
+        tpc_experiment.train(epoch)
+        tpc_experiment.validate(epoch)
+    tpc_experiment.test()
