@@ -1269,8 +1269,9 @@ class ExperimentTemplate():
 
             # save sample from batch
             if batch_idx == 0:
-                padded_sample = padded[0,:,:]
-                padded_sample.to_csv('padded_sample.csv')
+                padded_sample = padded[0,:,:].detach().cpu().numpy()
+                df = pd.DataFrame(padded_sample)
+                df.to_csv('padded_sample.csv')
 
             self.optimiser.zero_grad()
             y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
