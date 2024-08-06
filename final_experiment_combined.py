@@ -20,8 +20,6 @@ from eICU_preprocessing.split_train_test import process_table, shuffle_stays
 
 ###################################### MODELS ######################################
 ## TPC MODEL
-# ###============== The main defining function of the TPC model is temp_pointwise() on line 403 ==============###
-
 
 # Mean Squared Logarithmic Error (MSLE) loss
 class MSLELoss(nn.Module):
@@ -1360,6 +1358,13 @@ class ExperimentTemplate():
         for batch in test_batches:
 
             padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+            print('Padded shape:', padded.shape)
+            print('Mask shape:', mask.shape)
+            print('Diagnoses shape:', diagnoses.shape)
+            print('Flat shape:', flat.shape)
+            print('LoS labels shape:', los_labels.shape)
+            print('Mortality labels shape:', mort_labels.shape)
+            print('Sequence lengths shape:', seq_lengths.shape)
 
             y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
             loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
@@ -1533,14 +1538,6 @@ class Configuration:
             self.temp_kernels = [self.no_temp_kernels]*self.n_layers
             self.point_sizes = [self.point_size]*self.n_layers
 
-
-def print_attributes(obj):
-    for attribute_name in dir(obj):
-        if not attribute_name.startswith('__'):
-            attribute = getattr(obj, attribute_name)
-            if not callable(attribute):
-                print(f'{attribute_name}: {attribute}')
-
 if __name__ == '__main__':
 
     with open('paths.json', 'r') as f:
@@ -1548,36 +1545,27 @@ if __name__ == '__main__':
 
     ## RUN LSTM
     config = Configuration(model_name='LSTM')
-    print_attributes(config)
-
     lstm_experiment = ExperimentTemplate(config=config, model_name='LSTM')
-    print_attributes(lstm_experiment)
 
     for epoch in range(config.n_epochs):
         lstm_experiment.train(epoch)
         lstm_experiment.validate(epoch)
-    lstm_experiment.test()
+        lstm_experiment.test()
 
     ## RUN TRANSFORMER
     config = Configuration(model_name='Transformer')
-    print_attributes(config)
-
     transformer_experiment = ExperimentTemplate(config=config, model_name='Transformer')
-    print_attributes(transformer_experiment)
 
     for epoch in range(config.n_epochs):
         transformer_experiment.train(epoch)
         transformer_experiment.validate(epoch)
-    transformer_experiment.test()
+        transformer_experiment.test()
 
     ## RUN TPC
-    config = Configuration(model_name='TPC')
-    print_attributes(config)
-    
+    config = Configuration(model_name='TPC')    
     tpc_experiment = ExperimentTemplate(config=config, model_name='TPC')
-    print_attributes(tpc_experiment)
 
     for epoch in range(config.n_epochs):
         tpc_experiment.train(epoch)
         tpc_experiment.validate(epoch)
-    tpc_experiment.test()
+        tpc_experiment.test()
