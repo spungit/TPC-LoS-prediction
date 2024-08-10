@@ -818,11 +818,14 @@ class BaseLSTM(nn.Module):
         # (the batch is padded to the longest sequence)
 
         B, _, T = X.shape
+        print('\nX shape:', X.shape)
 
         if self.channelwise is False:
             # the lstm expects (seq_len, batch, input_size)
             # N.B. the default hidden state is zeros so we don't need to specify it
             lstm_output, hidden = self.lstm(X.permute(2, 0, 1))  # T * B * hidden_size
+            print('LSTM output shape:', lstm_output.shape)
+            print('Hidden shape:', hidden[0].shape)
 
         elif self.channelwise is True:
             # take time and hour fields as they are not useful when processed on their own (they go up linearly. They were also taken out for temporal convolution so the comparison is fair)
@@ -833,7 +836,8 @@ class BaseLSTM(nn.Module):
                 X_lstm, hidden = self.channelwise_lstm_list[i](X_rearranged[:, i, :, :].permute(2, 0, 1))
                 lstm_output = cat(self.remove_none((lstm_output, X_lstm)), dim=2)
 
-        X_final = self.relu(self.lstm_dropout(lstm_output.permute(1, 2, 0)))
+        X_final = self.relu(self.lstm_dropout(lstm_output.permute(1, 2, 0))) # B * hidden_size * T
+        print('X final shape:', X_final.shape)
 
         # note that we cut off at time_before_pred hours here because the model is only valid from time_before_pred hours onwards
         if self.no_diag:
@@ -847,6 +851,7 @@ class BaseLSTM(nn.Module):
 
         last_point_los = self.relu(self.main_dropout(self.bn_point_last_los(self.point_los(combined_features))))
         last_point_mort = self.relu(self.main_dropout(self.bn_point_last_mort(self.point_mort(combined_features))))
+        print('Last point mort shape:', last_point_mort.shape)
 
         if self.no_exp:
             los_predictions = self.hardtanh(self.point_final_los(last_point_los).view(B, T - time_before_pred))  # B * (T - time_before_pred)
@@ -1130,6 +1135,8 @@ def print_metrics_mortality(y_true, prediction_probs, verbose=1):
     prediction_probs = np.transpose(np.append([1 - prediction_probs], [prediction_probs], axis=0))
     predictions = prediction_probs.argmax(axis=1)
     cf = metrics.confusion_matrix(y_true, predictions, labels=range(2))
+    print('N predictions: {}'.format(len(predictions)))
+    print('N true: {}'.format(len(y_true)))
     print('Confusion matrix:')
     print(cf)
 
@@ -1228,19 +1235,25 @@ class ExperimentTemplate():
                               F=self.train_datareader.F,
                               D=self.train_datareader.D,
                               no_flat_features=self.train_datareader.no_flat_features).to(device=self.device)
+            print('Model: LSTM')
+            print(self.model)
         elif model_name == 'Transformer':
             self.model = Transformer(config=config,
                             F=self.train_datareader.F,
                             D=self.train_datareader.D,
                             no_flat_features=self.train_datareader.no_flat_features,
                             device=self.device).to(device=self.device)
+            print('Model: Transformer')
+            print(self.model)
         elif model_name == 'TPC':
             self.model = TempPointConv(config=config,
                                    F=self.train_datareader.F,
                                    D=self.train_datareader.D,
                                    no_flat_features=self.train_datareader.no_flat_features).to(device=self.device)
-        self.optimiser = Adam(self.model.parameters(), lr=self.learning_rate, weight_decay=self.L2_regularisation)
+            print('Model: Temporal Point Convolution')
+            print(self.model)
 
+        self.optimiser = Adam(self.model.parameters(), lr=self.learning_rate, weight_decay=self.L2_regularisation)
         self.remove_padding = lambda y, mask: remove_padding(y, mask, device=self.device)
 
         return
@@ -1260,40 +1273,52 @@ class ExperimentTemplate():
 
         for batch_idx, batch in enumerate(train_batches):
 
-            if batch_idx > (self.no_train_batches // (100 / self.percentage_data)):
-                break
+            if len(batch[0]) < 2:
+                continue
+            else:
+                if batch_idx > (self.no_train_batches // (100 / self.percentage_data)):
+                    break
 
-            padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+                padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+                print('Padded shape:', padded.shape)
+                print('Mask shape:', mask.shape)
+                print('Diagnoses shape:', diagnoses.shape)
+                print('Flat shape:', flat.shape)
+                print('LoS labels shape:', los_labels.shape)
+                print('Mortality labels shape:', mort_labels.shape)
+                print('Sequence lengths shape:', seq_lengths.shape)
 
-            # save sample from batch
-            if batch_idx in [0, 1]:
-                padded_sample = padded[0,:,:].detach().cpu().numpy()
-                df = pd.DataFrame(padded_sample)
-                df.to_csv(f'padded_sample_{batch_idx}.csv')
+                # save sample from batch
+                if batch_idx in [0, 1]:
+                    padded_sample = padded[0,:,:].detach().cpu().numpy()
+                    df = pd.DataFrame(padded_sample)
+                    df.to_csv(f'padded_sample_{batch_idx}.csv')
 
-            self.optimiser.zero_grad()
-            y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
-            loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
-                                   self.sum_losses, self.loss)
-            loss.backward()
-            self.optimiser.step()
-            train_loss.append(loss.item())
+                self.optimiser.zero_grad()
+                y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
+                print('y_hat_los:', y_hat_los.shape)
+                print('y_hat_mort:', y_hat_mort.shape)
+                loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
+                                    self.sum_losses, self.loss)
+                loss.backward()
+                self.optimiser.step()
+                train_loss.append(loss.item())
 
-            if self.task in ('LoS', 'multitask'):
-                train_y_hat_los = np.append(train_y_hat_los, self.remove_padding(y_hat_los, mask.type(self.bool_type)))
-                train_y_los = np.append(train_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
-            if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
-                train_y_hat_mort = np.append(train_y_hat_mort,
-                                             self.remove_padding(y_hat_mort[:, mort_pred_time],
-                                                                 mask.type(self.bool_type)[:, mort_pred_time]))
-                train_y_mort = np.append(train_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
-                                                                           mask.type(self.bool_type)[:, mort_pred_time]))
+                if self.task in ('LoS', 'multitask'):
+                    train_y_hat_los = np.append(train_y_hat_los, self.remove_padding(y_hat_los, mask.type(self.bool_type)))
+                    train_y_los = np.append(train_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
+                if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
+                    train_y_hat_mort = np.append(train_y_hat_mort,
+                                                self.remove_padding(y_hat_mort[:, mort_pred_time],
+                                                                    mask.type(self.bool_type)[:, mort_pred_time]))
+                    train_y_mort = np.append(train_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
+                                                                            mask.type(self.bool_type)[:, mort_pred_time]))
 
-            mean_loss_report = sum(train_loss[(batch_idx - self.log_interval):-1]) / self.log_interval
-            print('Epoch: {} [{:5.0f}/{:5.0f} samples] | train loss: {:3.4f}'.format(epoch,
-                                                                         batch_idx * self.batch_size,
-                                                                         batch_idx * self.no_train_batches,
-                                                                         mean_loss_report))
+                mean_loss_report = sum(train_loss[(batch_idx - self.log_interval):-1]) / self.log_interval
+                print('Epoch: {} [{:5.0f}/{:5.0f} samples] | train loss: {:3.4f}'.format(epoch,
+                                                                            batch_idx * self.batch_size,
+                                                                            batch_idx * self.no_train_batches,
+                                                                            mean_loss_report))
 
         print('Train Metrics:')
         mean_train_loss = sum(train_loss) / len(train_loss)
@@ -1317,23 +1342,26 @@ class ExperimentTemplate():
 
         for batch in val_batches:
 
-            padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+            if batch[0].shape[0] < 2:
+                continue
+            else:
+                padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
 
-            y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
-            loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
-                                    self.sum_losses, self.loss)
-            val_loss.append(loss.item())  # can't add the model.loss directly because it causes a memory leak
+                y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
+                loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
+                                        self.sum_losses, self.loss)
+                val_loss.append(loss.item())  # can't add the model.loss directly because it causes a memory leak
 
-            if self.task in ('LoS', 'multitask'):
-                val_y_hat_los = np.append(val_y_hat_los,
-                                            self.remove_padding(y_hat_los, mask.type(self.bool_type)))
-                val_y_los = np.append(val_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
-            if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
-                val_y_hat_mort = np.append(val_y_hat_mort,
-                                                self.remove_padding(y_hat_mort[:, mort_pred_time],
-                                                                    mask.type(self.bool_type)[:, mort_pred_time]))
-                val_y_mort = np.append(val_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
+                if self.task in ('LoS', 'multitask'):
+                    val_y_hat_los = np.append(val_y_hat_los,
+                                                self.remove_padding(y_hat_los, mask.type(self.bool_type)))
+                    val_y_los = np.append(val_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
+                if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
+                    val_y_hat_mort = np.append(val_y_hat_mort,
+                                                    self.remove_padding(y_hat_mort[:, mort_pred_time],
                                                                         mask.type(self.bool_type)[:, mort_pred_time]))
+                    val_y_mort = np.append(val_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
+                                                                            mask.type(self.bool_type)[:, mort_pred_time]))
 
         print('Validation Metrics:')
         mean_val_loss = sum(val_loss) / len(val_loss)
@@ -1357,30 +1385,33 @@ class ExperimentTemplate():
 
         for batch in test_batches:
 
-            padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
-            print('Padded shape:', padded.shape)
-            print('Mask shape:', mask.shape)
-            print('Diagnoses shape:', diagnoses.shape)
-            print('Flat shape:', flat.shape)
-            print('LoS labels shape:', los_labels.shape)
-            print('Mortality labels shape:', mort_labels.shape)
-            print('Sequence lengths shape:', seq_lengths.shape)
+            if batch[0].shape[0] < 2:
+                continue
+            else:
+                padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+                print('Padded shape:', padded.shape)
+                print('Mask shape:', mask.shape)
+                print('Diagnoses shape:', diagnoses.shape)
+                print('Flat shape:', flat.shape)
+                print('LoS labels shape:', los_labels.shape)
+                print('Mortality labels shape:', mort_labels.shape)
+                print('Sequence lengths shape:', seq_lengths.shape)
 
-            y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
-            loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
-                                   self.sum_losses, self.loss)
-            test_loss.append(loss.item())  # can't add the model.loss directly because it causes a memory leak
+                y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
+                loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
+                                    self.sum_losses, self.loss)
+                test_loss.append(loss.item())  # can't add the model.loss directly because it causes a memory leak
 
-            if self.task in ('LoS', 'multitask'):
-                test_y_hat_los = np.append(test_y_hat_los,
-                                          self.remove_padding(y_hat_los, mask.type(self.bool_type)))
-                test_y_los = np.append(test_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
-            if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
-                test_y_hat_mort = np.append(test_y_hat_mort,
-                                           self.remove_padding(y_hat_mort[:, mort_pred_time],
-                                                               mask.type(self.bool_type)[:, mort_pred_time]))
-                test_y_mort = np.append(test_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
-                                                                         mask.type(self.bool_type)[:, mort_pred_time]))
+                if self.task in ('LoS', 'multitask'):
+                    test_y_hat_los = np.append(test_y_hat_los,
+                                            self.remove_padding(y_hat_los, mask.type(self.bool_type)))
+                    test_y_los = np.append(test_y_los, self.remove_padding(los_labels, mask.type(self.bool_type)))
+                if self.task in ('mortality', 'multitask') and mort_labels.shape[1] >= mort_pred_time:
+                    test_y_hat_mort = np.append(test_y_hat_mort,
+                                            self.remove_padding(y_hat_mort[:, mort_pred_time],
+                                                                mask.type(self.bool_type)[:, mort_pred_time]))
+                    test_y_mort = np.append(test_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
+                                                                            mask.type(self.bool_type)[:, mort_pred_time]))
 
         print('Test Metrics:')
         mean_test_loss = sum(test_loss) / len(test_loss)
@@ -1399,7 +1430,6 @@ labs_to_keep = [0] + [(i + 1) for i in lab_indices] + [(i + 88) for i in lab_ind
 no_lab_indices = list(range(87))
 no_lab_indices = [x for x in no_lab_indices if x not in lab_indices]
 no_labs_to_keep = [0] + [(i + 1) for i in no_lab_indices] + [(i + 88) for i in no_lab_indices] + [-1]
-
 
 class eICUReader(object):
 
@@ -1503,11 +1533,11 @@ class Configuration:
         self.no_diag = False
         self.log_interval = 100
         self.sum_losses = True
+        self.batch_size_test = 32
 
         if model_name == 'LSTM':
-            self.n_epochs = 8
+            self.n_epochs = 1 #8
             self.batch_size = 512
-            self.batch_size_test = 32
             self.n_layers = 2
             self.hidden_size = 128
             self.learning_rate = 0.00129
@@ -1525,6 +1555,7 @@ class Configuration:
             self.trans_dropout_rate = 0
             self.positional_encoding = True
         elif model_name == 'TPC':
+            self.model_type = 'tpc'
             self.n_epochs = 15
             self.batch_size = 32
             self.n_layers = 9
@@ -1543,7 +1574,7 @@ if __name__ == '__main__':
     with open('paths.json', 'r') as f:
         eICU_path = json.load(f)["eICU_path"]
 
-    ## RUN LSTM
+    # RUN LSTM
     config = Configuration(model_name='LSTM')
     lstm_experiment = ExperimentTemplate(config=config, model_name='LSTM')
 
@@ -1552,20 +1583,20 @@ if __name__ == '__main__':
         lstm_experiment.validate(epoch)
         lstm_experiment.test()
 
-    ## RUN TRANSFORMER
-    config = Configuration(model_name='Transformer')
-    transformer_experiment = ExperimentTemplate(config=config, model_name='Transformer')
+    # ## RUN TRANSFORMER
+    # config = Configuration(model_name='Transformer')
+    # transformer_experiment = ExperimentTemplate(config=config, model_name='Transformer')
 
-    for epoch in range(config.n_epochs):
-        transformer_experiment.train(epoch)
-        transformer_experiment.validate(epoch)
-        transformer_experiment.test()
+    # for epoch in range(config.n_epochs):
+    #     transformer_experiment.train(epoch)
+    #     transformer_experiment.validate(epoch)
+    #     transformer_experiment.test()
 
-    ## RUN TPC
-    config = Configuration(model_name='TPC')    
-    tpc_experiment = ExperimentTemplate(config=config, model_name='TPC')
+    # ## RUN TPC
+    # config = Configuration(model_name='TPC')    
+    # tpc_experiment = ExperimentTemplate(config=config, model_name='TPC')
 
-    for epoch in range(config.n_epochs):
-        tpc_experiment.train(epoch)
-        tpc_experiment.validate(epoch)
-        tpc_experiment.test()
+    # for epoch in range(config.n_epochs):
+    #     tpc_experiment.train(epoch)
+    #     tpc_experiment.validate(epoch)
+    #     tpc_experiment.test()
