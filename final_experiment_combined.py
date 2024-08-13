@@ -865,8 +865,8 @@ class BaseLSTM(nn.Module):
     def loss(self, y_hat_los, y_hat_mort, y_los, y_mort, mask, seq_lengths, device, sum_losses, loss_type):
         # mort loss
         if self.task == 'mortality':
-            print('y_hat_mort shape (loss fxn):', y_hat_mort.shape)
-            print('y_mort shape (loss fxn):', y_mort.shape)
+            # print('y_hat_mort shape (loss fxn):', y_hat_mort.shape)
+            # print('y_mort shape (loss fxn):', y_mort.shape)
             loss = self.bce_loss(y_hat_mort, y_mort) * self.alpha
         # los loss
         else:
@@ -1135,8 +1135,22 @@ def print_metrics_regression(y_true, predictions, verbose=1):
 def print_metrics_mortality(y_true, prediction_probs, verbose=1):
     print('==> Mortality:')
     prediction_probs = np.array(prediction_probs)
+    print('Prediction probs: ', prediction_probs.shape)
     prediction_probs = np.transpose(np.append([1 - prediction_probs], [prediction_probs], axis=0))
+    print('Prediction probs: ', prediction_probs.shape)
     predictions = prediction_probs.argmax(axis=1)
+    print('Prediction: ', predictions.shape)
+    print('Y true: ', y_true.shape)
+    
+    # Debug prints to check for NaN or missing values
+    print('Number of NaNs in y_true:', np.isnan(y_true).sum())
+    print('Number of NaNs in prediction_probs:', np.isnan(prediction_probs).sum())
+    print('Number of NaNs in predictions:', np.isnan(predictions).sum())
+    
+    # Ensure y_true and predictions have the same length
+    if len(y_true) != len(predictions):
+        print('Length mismatch: y_true has length {}, predictions have length {}'.format(len(y_true), len(predictions)))
+    
     cf = metrics.confusion_matrix(y_true, predictions, labels=range(2))
     print('N predictions: {}'.format(len(predictions)))
     print('N true: {}'.format(len(y_true)))
@@ -1274,9 +1288,13 @@ class ExperimentTemplate():
         train_y_hat_mort = np.array([])
         train_y_mort = np.array([])
 
+        n_train_records = 0
+        n_skipped_batches = 0
+
         for batch_idx, batch in enumerate(train_batches):
 
             if len(batch[0]) < 2:
+                n_skipped_batches += 1
                 continue
             else:
                 if batch_idx > (self.no_train_batches // (100 / self.percentage_data)):
@@ -1290,6 +1308,7 @@ class ExperimentTemplate():
                 print('LoS labels shape:', los_labels.shape)
                 print('Mortality labels shape:', mort_labels.shape)
                 print('Sequence lengths shape:', seq_lengths.shape)
+                n_train_records += padded.shape[0]
 
                 # save sample from batch
                 if batch_idx in [0, 1]:
@@ -1337,6 +1356,8 @@ class ExperimentTemplate():
         if self.task in ('mortality', 'multitask'):
             print_metrics_mortality(train_y_mort, train_y_hat_mort)
         print('Epoch: {} | Train Loss: {:3.4f}'.format(epoch, mean_train_loss))
+        print(f"Number of records in training set: {n_train_records}")
+        print(f"Number of skipped batches: {n_skipped_batches}")
 
         return
 
@@ -1351,10 +1372,12 @@ class ExperimentTemplate():
         val_y_mort = np.array([])
 
         n_val_records = 0
+        n_skipped_batches = 0
 
         for batch in val_batches:
 
             if batch[0].shape[0] < 2:
+                n_skipped_batches += 1
                 continue
             else:
                 padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
@@ -1385,6 +1408,7 @@ class ExperimentTemplate():
         print('Epoch: {} | Validation Loss: {:3.4f}'.format(epoch, mean_val_loss))
 
         print(f"Number of records in validation set: {n_val_records}")
+        print(f"Number of skipped batches: {n_skipped_batches}")
         return
 
     def test(self, mort_pred_time=24):
@@ -1398,10 +1422,12 @@ class ExperimentTemplate():
         test_y_mort = np.array([])
 
         n_test_records = 0
+        n_skipped_batches = 0
 
         for batch in test_batches:
 
             if batch[0].shape[0] < 2:
+                n_skipped_batches += 1
                 continue
             else:
                 padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
@@ -1440,6 +1466,7 @@ class ExperimentTemplate():
 
         print('Test Loss: {:3.4f}'.format(mean_test_loss))
         print(f"Number of records in test set: {n_test_records}")
+        print(f"Number of skipped batches: {n_skipped_batches}")
 
 ###################################### DATA LOADER ######################################
 # bit hacky but passes checks and I don't have time to implement a neater solution
