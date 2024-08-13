@@ -1301,25 +1301,43 @@ class ExperimentTemplate():
                     break
 
                 padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
-                print('Padded shape:', padded.shape)
-                print('Mask shape:', mask.shape)
-                print('Diagnoses shape:', diagnoses.shape)
-                print('Flat shape:', flat.shape)
-                print('LoS labels shape:', los_labels.shape)
-                print('Mortality labels shape:', mort_labels.shape)
-                print('Sequence lengths shape:', seq_lengths.shape)
+                # print('Padded shape:', padded.shape)
+                # print('Mask shape:', mask.shape)
+                # print('Diagnoses shape:', diagnoses.shape)
+                # print('Flat shape:', flat.shape)
+                # print('LoS labels shape:', los_labels.shape)
+                # print('Mortality labels shape:', mort_labels.shape)
+                # print('Sequence lengths shape:', seq_lengths.shape)
                 n_train_records += padded.shape[0]
+
+                if np.isnan(padded).any():
+                    print('NaNs found in padded:', np.isnan(padded).sum())
+                if np.isnan(mask).any():
+                    print('NaNs found in mask:', np.isnan(mask).sum())
+                if np.isnan(diagnoses).any():
+                    print('NaNs found in diagnoses:', np.isnan(diagnoses).sum())
+                if np.isnan(flat).any():
+                    print('NaNs found in flat:', np.isnan(flat).sum())
+                if np.isnan(los_labels).any():
+                    print('NaNs found in los_labels:', np.isnan(los_labels).sum())
+                if np.isnan(mort_labels).any():
+                    print('NaNs found in mort_labels:', np.isnan(mort_labels).sum())
+                if np.isnan(seq_lengths).any():
+                    print('NaNs found in seq_lengths:', np.isnan(seq_lengths).sum())
 
                 # save sample from batch
                 if batch_idx in [0, 1]:
                     padded_sample = padded[0,:,:].detach().cpu().numpy()
                     df = pd.DataFrame(padded_sample)
                     df.to_csv(f'padded_sample_{batch_idx}.csv')
+                    mask_sample = mask.detach().cpu().numpy()
+                    df = pd.DataFrame(mask_sample)
+                    df.to_csv(f'mask_sample_{batch_idx}.csv')
 
                 self.optimiser.zero_grad()
                 y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
-                print('y_hat_los:', y_hat_los.shape)
-                print('y_hat_mort:', y_hat_mort.shape)
+                # print('y_hat_los:', y_hat_los.shape)
+                # print('y_hat_mort:', y_hat_mort.shape)
                 if batch_idx in [0, 1]:
                     y_hat_mort_sample = y_hat_mort.detach().cpu().numpy()
                     df = pd.DataFrame(y_hat_mort_sample)
@@ -1340,9 +1358,17 @@ class ExperimentTemplate():
                     train_y_hat_mort = np.append(train_y_hat_mort,
                                                 self.remove_padding(y_hat_mort[:, mort_pred_time],
                                                                     mask.type(self.bool_type)[:, mort_pred_time]))
+                    if batch_idx in [0, 1]:
+                        before_remove_pad = y_hat_mort[:, mort_pred_time].detach().cpu().numpy()
+                        df = pd.DataFrame(before_remove_pad)
+                        df.to_csv(f'before_remove_pad_{batch_idx}.csv')
+                        after_remove_pad = self.remove_padding(mort_labels[:, mort_pred_time],
+                                                                            mask.type(self.bool_type)[:, mort_pred_time])
+                        df = pd.DataFrame(after_remove_pad)
+                        df.to_csv(f'after_remove_pad_{batch_idx}.csv')
+
                     train_y_mort = np.append(train_y_mort, self.remove_padding(mort_labels[:, mort_pred_time],
                                                                             mask.type(self.bool_type)[:, mort_pred_time]))
-
                 mean_loss_report = sum(train_loss[(batch_idx - self.log_interval):-1]) / self.log_interval
                 print('Epoch: {} [{:5.0f}/{:5.0f} samples] | train loss: {:3.4f}'.format(epoch,
                                                                             batch_idx * self.batch_size,
@@ -1440,6 +1466,21 @@ class ExperimentTemplate():
                 # print('Mortality labels shape:', mort_labels.shape)
                 # print('Sequence lengths shape:', seq_lengths.shape)
 
+                if np.isnan(padded).any():
+                    print('NaNs found in padded:', np.isnan(padded).sum())
+                if np.isnan(mask).any():
+                    print('NaNs found in mask:', np.isnan(mask).sum())
+                if np.isnan(diagnoses).any():
+                    print('NaNs found in diagnoses:', np.isnan(diagnoses).sum())
+                if np.isnan(flat).any():
+                    print('NaNs found in flat:', np.isnan(flat).sum())
+                if np.isnan(los_labels).any():
+                    print('NaNs found in los_labels:', np.isnan(los_labels).sum())
+                if np.isnan(mort_labels).any():
+                    print('NaNs found in mort_labels:', np.isnan(mort_labels).sum())
+                if np.isnan(seq_lengths).any():
+                    print('NaNs found in seq_lengths:', np.isnan(seq_lengths).sum())
+                
                 y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
                 loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
                                     self.sum_losses, self.loss)
