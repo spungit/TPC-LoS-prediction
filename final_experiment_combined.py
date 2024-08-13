@@ -818,14 +818,14 @@ class BaseLSTM(nn.Module):
         # (the batch is padded to the longest sequence)
 
         B, _, T = X.shape
-        print('\nX shape:', X.shape)
+        # print('\nX shape:', X.shape)
 
         if self.channelwise is False:
             # the lstm expects (seq_len, batch, input_size)
             # N.B. the default hidden state is zeros so we don't need to specify it
             lstm_output, hidden = self.lstm(X.permute(2, 0, 1))  # T * B * hidden_size
-            print('LSTM output shape:', lstm_output.shape)
-            print('Hidden shape:', hidden[0].shape)
+            # print('LSTM output shape:', lstm_output.shape)
+            # print('Hidden shape:', hidden[0].shape)
 
         elif self.channelwise is True:
             # take time and hour fields as they are not useful when processed on their own (they go up linearly. They were also taken out for temporal convolution so the comparison is fair)
@@ -837,7 +837,7 @@ class BaseLSTM(nn.Module):
                 lstm_output = cat(self.remove_none((lstm_output, X_lstm)), dim=2)
 
         X_final = self.relu(self.lstm_dropout(lstm_output.permute(1, 2, 0))) # B * hidden_size * T
-        print('X final shape:', X_final.shape)
+        # print('X final shape:', X_final.shape)
 
         # note that we cut off at time_before_pred hours here because the model is only valid from time_before_pred hours onwards
         if self.no_diag:
@@ -849,21 +849,24 @@ class BaseLSTM(nn.Module):
                                      diagnoses_enc.repeat_interleave(T - time_before_pred, dim=0),  # (B * (T - time_before_pred)) * diagnosis_size
                                      X_final[:, :, time_before_pred:].permute(0, 2, 1).contiguous().view(B * (T - time_before_pred), -1)), dim=1)
 
+        # print('Combined features shape:', combined_features.shape)
         last_point_los = self.relu(self.main_dropout(self.bn_point_last_los(self.point_los(combined_features))))
         last_point_mort = self.relu(self.main_dropout(self.bn_point_last_mort(self.point_mort(combined_features))))
-        print('Last point mort shape:', last_point_mort.shape)
+        # print('Last point mort shape:', last_point_mort.shape)
 
         if self.no_exp:
             los_predictions = self.hardtanh(self.point_final_los(last_point_los).view(B, T - time_before_pred))  # B * (T - time_before_pred)
         else:
             los_predictions = self.hardtanh(exp(self.point_final_los(last_point_los).view(B, T - time_before_pred)))  # B * (T - time_before_pred)
         mort_predictions = self.sigmoid(self.point_final_mort(last_point_mort).view(B, T - time_before_pred))  # B * (T - time_before_pred)
-
+        # print('Mort predictions shape:', mort_predictions.shape)
         return los_predictions, mort_predictions
 
     def loss(self, y_hat_los, y_hat_mort, y_los, y_mort, mask, seq_lengths, device, sum_losses, loss_type):
         # mort loss
         if self.task == 'mortality':
+            print('y_hat_mort shape (loss fxn):', y_hat_mort.shape)
+            print('y_mort shape (loss fxn):', y_mort.shape)
             loss = self.bce_loss(y_hat_mort, y_mort) * self.alpha
         # los loss
         else:
@@ -1298,6 +1301,13 @@ class ExperimentTemplate():
                 y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
                 print('y_hat_los:', y_hat_los.shape)
                 print('y_hat_mort:', y_hat_mort.shape)
+                if batch_idx in [0, 1]:
+                    y_hat_mort_sample = y_hat_mort.detach().cpu().numpy()
+                    df = pd.DataFrame(y_hat_mort_sample)
+                    df.to_csv(f'y_hat_mort_sample_{batch_idx}.csv')
+                    mort_labels_sample = mort_labels.detach().cpu().numpy()
+                    df = pd.DataFrame(mort_labels_sample)
+                    df.to_csv(f'mort_labels_sample_{batch_idx}.csv')
                 loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
                                     self.sum_losses, self.loss)
                 loss.backward()
@@ -1340,12 +1350,15 @@ class ExperimentTemplate():
         val_y_hat_mort = np.array([])
         val_y_mort = np.array([])
 
+        n_val_records = 0
+
         for batch in val_batches:
 
             if batch[0].shape[0] < 2:
                 continue
             else:
                 padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
+                n_val_records += padded.shape[0]
 
                 y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
                 loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
@@ -1371,6 +1384,7 @@ class ExperimentTemplate():
             print_metrics_mortality(val_y_mort, val_y_hat_mort)
         print('Epoch: {} | Validation Loss: {:3.4f}'.format(epoch, mean_val_loss))
 
+        print(f"Number of records in validation set: {n_val_records}")
         return
 
     def test(self, mort_pred_time=24):
@@ -1383,19 +1397,22 @@ class ExperimentTemplate():
         test_y_hat_mort = np.array([])
         test_y_mort = np.array([])
 
+        n_test_records = 0
+
         for batch in test_batches:
 
             if batch[0].shape[0] < 2:
                 continue
             else:
                 padded, mask, diagnoses, flat, los_labels, mort_labels, seq_lengths = batch
-                print('Padded shape:', padded.shape)
-                print('Mask shape:', mask.shape)
-                print('Diagnoses shape:', diagnoses.shape)
-                print('Flat shape:', flat.shape)
-                print('LoS labels shape:', los_labels.shape)
-                print('Mortality labels shape:', mort_labels.shape)
-                print('Sequence lengths shape:', seq_lengths.shape)
+                n_test_records += padded.shape[0]
+                # print('Padded shape:', padded.shape)
+                # print('Mask shape:', mask.shape)
+                # print('Diagnoses shape:', diagnoses.shape)
+                # print('Flat shape:', flat.shape)
+                # print('LoS labels shape:', los_labels.shape)
+                # print('Mortality labels shape:', mort_labels.shape)
+                # print('Sequence lengths shape:', seq_lengths.shape)
 
                 y_hat_los, y_hat_mort = self.model(padded, diagnoses, flat)
                 loss = self.model.loss(y_hat_los, y_hat_mort, los_labels, mort_labels, mask, seq_lengths, self.device,
@@ -1422,6 +1439,7 @@ class ExperimentTemplate():
             print_metrics_mortality(test_y_mort, test_y_hat_mort)
 
         print('Test Loss: {:3.4f}'.format(mean_test_loss))
+        print(f"Number of records in test set: {n_test_records}")
 
 ###################################### DATA LOADER ######################################
 # bit hacky but passes checks and I don't have time to implement a neater solution
