@@ -1,4 +1,5 @@
 import os
+import sys
 
 import math
 import json
@@ -17,6 +18,10 @@ from torch.nn.modules.batchnorm import _BatchNorm
 from torch.optim import Adam
 
 from eICU_preprocessing.split_train_test import process_table, shuffle_stays
+
+# save output to a text file
+output_file = 'console_output.txt'
+sys.stdout = open(output_file, 'w')
 
 ###################################### MODELS ######################################
 ## TPC MODEL
@@ -1669,6 +1674,9 @@ if __name__ == '__main__':
         lstm_experiment.validate(epoch)
         lstm_experiment.test()
 
+    ## save the model
+    torch.save(lstm_experiment.model.state_dict(), 'lstm_model.pth')
+
     # ## RUN TRANSFORMER
     # config = Configuration(model_name='Transformer')
     # transformer_experiment = ExperimentTemplate(config=config, model_name='Transformer')
@@ -1686,3 +1694,5 @@ if __name__ == '__main__':
     #     tpc_experiment.train(epoch)
     #     tpc_experiment.validate(epoch)
     #     tpc_experiment.test()
+
+sys.stdout.close()
