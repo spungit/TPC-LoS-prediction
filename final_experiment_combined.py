@@ -1627,7 +1627,7 @@ class Configuration:
         self.batch_size_test = 32
 
         if model_name == 'LSTM':
-            self.n_epochs = 1 #8
+            self.n_epochs = 8
             self.batch_size = 512
             self.n_layers = 2
             self.hidden_size = 128
