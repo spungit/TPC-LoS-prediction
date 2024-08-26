@@ -6,3 +6,4 @@ MIMIC_data
 __pycache__
 figures
 *.csv
+console_output.txt
