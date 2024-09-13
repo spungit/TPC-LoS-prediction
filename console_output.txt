@@ -25,42 +25,2217 @@ BaseLSTM(
 )
 Number of training batches: 200.681640625
 Epoch: 0 [    0/    0 samples] | train loss: 0.0000
-Epoch: 0 [  512/  201 samples] | train loss: 0.8181
-Epoch: 0 [ 1024/  401 samples] | train loss: 1.6196
-Epoch: 0 [ 1536/  602 samples] | train loss: 2.4077
-Epoch: 0 [ 2048/  803 samples] | train loss: 3.1949
-Epoch: 0 [ 2560/ 1003 samples] | train loss: 3.9840
-Epoch: 0 [ 3072/ 1204 samples] | train loss: 4.7507
-Epoch: 0 [ 3584/ 1405 samples] | train loss: 5.5198
-Epoch: 0 [ 4096/ 1605 samples] | train loss: 6.2769
-Epoch: 0 [ 4608/ 1806 samples] | train loss: 7.0262
-Epoch: 0 [ 5120/ 2007 samples] | train loss: 7.7647
-Epoch: 0 [ 5632/ 2207 samples] | train loss: 8.5033
-Epoch: 0 [ 6144/ 2408 samples] | train loss: 9.2307
-Epoch: 0 [ 6656/ 2609 samples] | train loss: 9.9480
-Epoch: 0 [ 7168/ 2810 samples] | train loss: 10.6616
-Epoch: 0 [ 7680/ 3010 samples] | train loss: 11.3600
-Epoch: 0 [ 8192/ 3211 samples] | train loss: 12.0596
-Epoch: 0 [ 8704/ 3412 samples] | train loss: 12.7516
-Epoch: 0 [ 9216/ 3612 samples] | train loss: 13.4404
-Epoch: 0 [ 9728/ 3813 samples] | train loss: 14.1257
-Epoch: 0 [10240/ 4014 samples] | train loss: 14.7988
-Epoch: 0 [10752/ 4214 samples] | train loss: 15.4727
-Epoch: 0 [11264/ 4415 samples] | train loss: 16.1148
-Epoch: 0 [11776/ 4616 samples] | train loss: 16.7780
-Epoch: 0 [12288/ 4816 samples] | train loss: 17.4350
-Epoch: 0 [12800/ 5017 samples] | train loss: 18.0968
-Epoch: 0 [13312/ 5218 samples] | train loss: 18.7373
-Epoch: 0 [13824/ 5418 samples] | train loss: 19.3704
-Epoch: 0 [14336/ 5619 samples] | train loss: 20.0082
-Epoch: 0 [14848/ 5820 samples] | train loss: 20.6222
-Epoch: 0 [15360/ 6020 samples] | train loss: 21.2440
-Epoch: 0 [15872/ 6221 samples] | train loss: 21.8623
-Epoch: 0 [16384/ 6422 samples] | train loss: 22.4679
-Epoch: 0 [16896/ 6622 samples] | train loss: 23.0603
-Epoch: 0 [17408/ 6823 samples] | train loss: 23.6349
-Epoch: 0 [17920/ 7024 samples] | train loss: 24.2192
-Epoch: 0 [18432/ 7225 samples] | train loss: 24.7830
-Epoch: 0 [18944/ 7425 samples] | train loss: 25.3283
-Epoch: 0 [19456/ 7626 samples] | train loss: 25.8858
-Epoch: 0 [19968/ 7827 samples] | train loss: 26.4495
+Epoch: 0 [  512/  201 samples] | train loss: 0.9055
+Epoch: 0 [ 1024/  401 samples] | train loss: 1.8059
+Epoch: 0 [ 1536/  602 samples] | train loss: 2.6993
+Epoch: 0 [ 2048/  803 samples] | train loss: 3.5773
+Epoch: 0 [ 2560/ 1003 samples] | train loss: 4.4436
+Epoch: 0 [ 3072/ 1204 samples] | train loss: 5.3116
+Epoch: 0 [ 3584/ 1405 samples] | train loss: 6.1659
+Epoch: 0 [ 4096/ 1605 samples] | train loss: 7.0104
+Epoch: 0 [ 4608/ 1806 samples] | train loss: 7.8553
+Epoch: 0 [ 5120/ 2007 samples] | train loss: 8.6851
+Epoch: 0 [ 5632/ 2207 samples] | train loss: 9.4920
+Epoch: 0 [ 6144/ 2408 samples] | train loss: 10.3055
+Epoch: 0 [ 6656/ 2609 samples] | train loss: 11.0980
+Epoch: 0 [ 7168/ 2810 samples] | train loss: 11.8947
+Epoch: 0 [ 7680/ 3010 samples] | train loss: 12.6912
+Epoch: 0 [ 8192/ 3211 samples] | train loss: 13.4752
+Epoch: 0 [ 8704/ 3412 samples] | train loss: 14.2661
+Epoch: 0 [ 9216/ 3612 samples] | train loss: 15.0342
+Epoch: 0 [ 9728/ 3813 samples] | train loss: 15.8034
+Epoch: 0 [10240/ 4014 samples] | train loss: 16.5517
+Epoch: 0 [10752/ 4214 samples] | train loss: 17.2878
+Epoch: 0 [11264/ 4415 samples] | train loss: 18.0323
+Epoch: 0 [11776/ 4616 samples] | train loss: 18.7576
+Epoch: 0 [12288/ 4816 samples] | train loss: 19.4842
+Epoch: 0 [12800/ 5017 samples] | train loss: 20.2110
+Epoch: 0 [13312/ 5218 samples] | train loss: 20.9494
+Epoch: 0 [13824/ 5418 samples] | train loss: 21.6342
+Epoch: 0 [14336/ 5619 samples] | train loss: 22.3147
+Epoch: 0 [14848/ 5820 samples] | train loss: 22.9790
+Epoch: 0 [15360/ 6020 samples] | train loss: 23.6513
+Epoch: 0 [15872/ 6221 samples] | train loss: 24.3167
+Epoch: 0 [16384/ 6422 samples] | train loss: 24.9691
+Epoch: 0 [16896/ 6622 samples] | train loss: 25.6247
+Epoch: 0 [17408/ 6823 samples] | train loss: 26.2728
+Epoch: 0 [17920/ 7024 samples] | train loss: 26.9156
+Epoch: 0 [18432/ 7225 samples] | train loss: 27.5377
+Epoch: 0 [18944/ 7425 samples] | train loss: 28.1576
+Epoch: 0 [19456/ 7626 samples] | train loss: 28.7884
+Epoch: 0 [19968/ 7827 samples] | train loss: 29.4369
+Epoch: 0 [20480/ 8027 samples] | train loss: 30.0499
+Epoch: 0 [20992/ 8228 samples] | train loss: 30.6502
+Epoch: 0 [21504/ 8429 samples] | train loss: 31.2708
+Epoch: 0 [22016/ 8629 samples] | train loss: 31.8718
+Epoch: 0 [22528/ 8830 samples] | train loss: 32.4472
+Epoch: 0 [23040/ 9031 samples] | train loss: 33.0342
+Epoch: 0 [23552/ 9231 samples] | train loss: 33.6357
+Epoch: 0 [24064/ 9432 samples] | train loss: 34.2296
+Epoch: 0 [24576/ 9633 samples] | train loss: 34.8335
+Epoch: 0 [25088/ 9833 samples] | train loss: 35.4064
+Epoch: 0 [25600/10034 samples] | train loss: 35.0627
+Epoch: 0 [26112/10235 samples] | train loss: 33.8353
+Epoch: 0 [26624/10435 samples] | train loss: 32.6599
+Epoch: 0 [27136/10636 samples] | train loss: 31.5099
+Epoch: 0 [27648/10837 samples] | train loss: 30.3994
+Epoch: 0 [28160/11037 samples] | train loss: 29.3103
+Epoch: 0 [28672/11238 samples] | train loss: 28.2830
+Epoch: 0 [29184/11439 samples] | train loss: 27.2521
+Epoch: 0 [29696/11640 samples] | train loss: 26.2278
+Epoch: 0 [30208/11840 samples] | train loss: 25.2352
+Epoch: 0 [30720/12041 samples] | train loss: 24.3108
+Epoch: 0 [31232/12242 samples] | train loss: 23.3863
+Epoch: 0 [31744/12442 samples] | train loss: 22.4875
+Epoch: 0 [32256/12643 samples] | train loss: 21.6009
+Epoch: 0 [32768/12844 samples] | train loss: 20.7884
+Epoch: 0 [33280/13044 samples] | train loss: 19.9789
+Epoch: 0 [33792/13245 samples] | train loss: 19.1962
+Epoch: 0 [34304/13446 samples] | train loss: 18.4211
+Epoch: 0 [34816/13646 samples] | train loss: 17.7093
+Epoch: 0 [35328/13847 samples] | train loss: 16.9593
+Epoch: 0 [35840/14048 samples] | train loss: 16.2588
+Epoch: 0 [36352/14248 samples] | train loss: 15.5461
+Epoch: 0 [36864/14449 samples] | train loss: 14.8749
+Epoch: 0 [37376/14650 samples] | train loss: 14.1785
+Epoch: 0 [37888/14850 samples] | train loss: 13.5206
+Epoch: 0 [38400/15051 samples] | train loss: 12.8875
+Epoch: 0 [38912/15252 samples] | train loss: 12.2593
+Epoch: 0 [39424/15452 samples] | train loss: 11.6281
+Epoch: 0 [39936/15653 samples] | train loss: 10.9857
+Epoch: 0 [40448/15854 samples] | train loss: 10.3875
+Epoch: 0 [40960/16055 samples] | train loss: 9.8279
+Epoch: 0 [41472/16255 samples] | train loss: 9.2613
+Epoch: 0 [41984/16456 samples] | train loss: 8.6874
+Epoch: 0 [42496/16657 samples] | train loss: 8.1261
+Epoch: 0 [43008/16857 samples] | train loss: 7.5463
+Epoch: 0 [43520/17058 samples] | train loss: 7.0062
+Epoch: 0 [44032/17259 samples] | train loss: 6.4882
+Epoch: 0 [44544/17459 samples] | train loss: 5.9262
+Epoch: 0 [45056/17660 samples] | train loss: 5.3874
+Epoch: 0 [45568/17861 samples] | train loss: 4.8497
+Epoch: 0 [46080/18061 samples] | train loss: 4.2550
+Epoch: 0 [46592/18262 samples] | train loss: 3.7595
+Epoch: 0 [47104/18463 samples] | train loss: 3.2400
+Epoch: 0 [47616/18663 samples] | train loss: 2.7643
+Epoch: 0 [48128/18864 samples] | train loss: 2.2745
+Epoch: 0 [48640/19065 samples] | train loss: 1.7718
+Epoch: 0 [49152/19265 samples] | train loss: 1.3294
+Epoch: 0 [49664/19466 samples] | train loss: 0.8998
+Epoch: 0 [50176/19667 samples] | train loss: 0.4378
+Epoch: 0 [50688/19867 samples] | train loss: 0.0000
+Epoch: 0 [51200/20068 samples] | train loss: 61.1895
+Epoch: 0 [51712/20269 samples] | train loss: 60.7107
+Epoch: 0 [52224/20470 samples] | train loss: 60.2429
+Epoch: 0 [52736/20670 samples] | train loss: 59.7828
+Epoch: 0 [53248/20871 samples] | train loss: 59.3213
+Epoch: 0 [53760/21072 samples] | train loss: 58.8823
+Epoch: 0 [54272/21272 samples] | train loss: 58.4414
+Epoch: 0 [54784/21473 samples] | train loss: 58.0144
+Epoch: 0 [55296/21674 samples] | train loss: 57.5886
+Epoch: 0 [55808/21874 samples] | train loss: 57.1595
+Epoch: 0 [56320/22075 samples] | train loss: 56.7448
+Epoch: 0 [56832/22276 samples] | train loss: 56.3442
+Epoch: 0 [57344/22476 samples] | train loss: 55.9416
+Epoch: 0 [57856/22677 samples] | train loss: 55.5542
+Epoch: 0 [58368/22878 samples] | train loss: 55.1539
+Epoch: 0 [58880/23078 samples] | train loss: 54.7571
+Epoch: 0 [59392/23279 samples] | train loss: 54.3674
+Epoch: 0 [59904/23480 samples] | train loss: 53.9625
+Epoch: 0 [60416/23680 samples] | train loss: 53.6131
+Epoch: 0 [60928/23881 samples] | train loss: 53.2469
+Epoch: 0 [61440/24082 samples] | train loss: 52.8698
+Epoch: 0 [61952/24282 samples] | train loss: 52.5047
+Epoch: 0 [62464/24483 samples] | train loss: 52.1452
+Epoch: 0 [62976/24684 samples] | train loss: 51.8121
+Epoch: 0 [63488/24885 samples] | train loss: 51.4714
+Epoch: 0 [64000/25085 samples] | train loss: 51.1363
+Epoch: 0 [64512/25286 samples] | train loss: 50.7656
+Epoch: 0 [65024/25487 samples] | train loss: 50.5927
+Epoch: 0 [65536/25687 samples] | train loss: 50.3844
+Epoch: 0 [66048/25888 samples] | train loss: 50.1717
+Epoch: 0 [66560/26089 samples] | train loss: 49.9221
+Epoch: 0 [67072/26289 samples] | train loss: 49.6930
+Epoch: 0 [67584/26490 samples] | train loss: 49.4826
+Epoch: 0 [68096/26691 samples] | train loss: 49.2605
+Epoch: 0 [68608/26891 samples] | train loss: 49.0436
+Epoch: 0 [69120/27092 samples] | train loss: 48.8274
+Epoch: 0 [69632/27293 samples] | train loss: 48.6307
+Epoch: 0 [70144/27493 samples] | train loss: 48.4399
+Epoch: 0 [70656/27694 samples] | train loss: 48.2194
+Epoch: 0 [71168/27895 samples] | train loss: 47.9683
+Epoch: 0 [71680/28095 samples] | train loss: 47.7645
+Epoch: 0 [72192/28296 samples] | train loss: 47.5690
+Epoch: 0 [72704/28497 samples] | train loss: 47.3485
+Epoch: 0 [73216/28697 samples] | train loss: 47.1593
+Epoch: 0 [73728/28898 samples] | train loss: 46.9841
+Epoch: 0 [74240/29099 samples] | train loss: 46.7945
+Epoch: 0 [74752/29300 samples] | train loss: 46.5554
+Epoch: 0 [75264/29500 samples] | train loss: 46.3509
+Epoch: 0 [75776/29701 samples] | train loss: 46.1382
+Epoch: 0 [76288/29902 samples] | train loss: 45.9563
+Epoch: 0 [76800/30102 samples] | train loss: 45.7727
+Epoch: 0 [77312/30303 samples] | train loss: 45.5946
+Epoch: 0 [77824/30504 samples] | train loss: 45.4080
+Epoch: 0 [78336/30704 samples] | train loss: 45.2106
+Epoch: 0 [78848/30905 samples] | train loss: 45.0413
+Epoch: 0 [79360/31106 samples] | train loss: 44.8882
+Epoch: 0 [79872/31306 samples] | train loss: 44.6858
+Epoch: 0 [80384/31507 samples] | train loss: 44.4898
+Epoch: 0 [80896/31708 samples] | train loss: 44.2948
+Epoch: 0 [81408/31908 samples] | train loss: 44.1309
+Epoch: 0 [81920/32109 samples] | train loss: 43.9390
+Epoch: 0 [82432/32310 samples] | train loss: 43.7367
+Epoch: 0 [82944/32510 samples] | train loss: 43.5366
+Epoch: 0 [83456/32711 samples] | train loss: 43.3530
+Epoch: 0 [83968/32912 samples] | train loss: 43.1653
+Epoch: 0 [84480/33112 samples] | train loss: 42.9910
+Epoch: 0 [84992/33313 samples] | train loss: 42.7986
+Epoch: 0 [85504/33514 samples] | train loss: 42.6205
+Epoch: 0 [86016/33715 samples] | train loss: 42.4281
+Epoch: 0 [86528/33915 samples] | train loss: 42.2553
+Epoch: 0 [87040/34116 samples] | train loss: 42.0964
+Epoch: 0 [87552/34317 samples] | train loss: 41.9043
+Epoch: 0 [88064/34517 samples] | train loss: 41.7725
+Epoch: 0 [88576/34718 samples] | train loss: 41.6032
+Epoch: 0 [89088/34919 samples] | train loss: 41.4203
+Epoch: 0 [89600/35119 samples] | train loss: 41.2552
+Epoch: 0 [90112/35320 samples] | train loss: 41.0935
+Epoch: 0 [90624/35521 samples] | train loss: 40.9030
+Epoch: 0 [91136/35721 samples] | train loss: 40.7226
+Epoch: 0 [91648/35922 samples] | train loss: 40.5853
+Epoch: 0 [92160/36123 samples] | train loss: 40.3758
+Epoch: 0 [92672/36323 samples] | train loss: 40.1713
+Epoch: 0 [93184/36524 samples] | train loss: 40.0142
+Epoch: 0 [93696/36725 samples] | train loss: 39.8473
+Epoch: 0 [94208/36925 samples] | train loss: 39.6996
+Epoch: 0 [94720/37126 samples] | train loss: 39.5350
+Epoch: 0 [95232/37327 samples] | train loss: 39.3808
+Epoch: 0 [95744/37527 samples] | train loss: 39.2393
+Epoch: 0 [96256/37728 samples] | train loss: 39.0962
+Epoch: 0 [96768/37929 samples] | train loss: 38.9509
+Epoch: 0 [97280/38130 samples] | train loss: 38.8035
+Epoch: 0 [97792/38330 samples] | train loss: 38.6412
+Epoch: 0 [98304/38531 samples] | train loss: 38.5047
+Epoch: 0 [98816/38732 samples] | train loss: 38.3684
+Epoch: 0 [99328/38932 samples] | train loss: 38.2244
+Epoch: 0 [99840/39133 samples] | train loss: 38.0751
+Epoch: 0 [100352/39334 samples] | train loss: 37.9170
+Epoch: 0 [100864/39534 samples] | train loss: 37.7581
+Epoch: 0 [101376/39735 samples] | train loss: 37.6188
+Epoch: 0 [101888/39936 samples] | train loss: 37.4749
+Epoch: 0 [102400/40136 samples] | train loss: 37.3546
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[47366 12855]
+ [ 3822  2872]]
+Accuracy = 0.7507733702659607
+Precision Survived = 0.9253340363502502
+Precision Died = 0.18261587619781494
+Recall Survived = 0.7865362763404846
+Recall Died = 0.42904093861579895
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.6711832708888856
+Area Under the Precision Recall curve (AUPRC) = 0.1970454472598882
+F1 score (macro averaged) = 0.5532483590967217
+Epoch: 0 | Train Loss: 49.1895
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12766   198]
+ [ 1107   240]]
+Accuracy = 0.9088113903999329
+Precision Survived = 0.9202046990394592
+Precision Died = 0.5479452013969421
+Recall Survived = 0.9847269654273987
+Recall Died = 0.1781737208366394
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.8074656572813024
+Area Under the Precision Recall curve (AUPRC) = 0.3468003417080734
+F1 score (macro averaged) = 0.6101403336607587
+Epoch: 0 | Validation Loss: 25.2727
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12640   211]
+ [ 1153   270]]
+Accuracy = 0.9044416546821594
+Precision Survived = 0.9164068698883057
+Precision Died = 0.5613305568695068
+Recall Survived = 0.9835810661315918
+Recall Died = 0.18973998725414276
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.8118142351935446
+Area Under the Precision Recall curve (AUPRC) = 0.40114212782653164
+F1 score (macro averaged) = 0.6162099654454185
+Test Loss: 25.7582
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 1 [    0/    0 samples] | train loss: 0.0000
+Epoch: 1 [  512/  201 samples] | train loss: 0.3198
+Epoch: 1 [ 1024/  401 samples] | train loss: 0.6592
+Epoch: 1 [ 1536/  602 samples] | train loss: 0.9810
+Epoch: 1 [ 2048/  803 samples] | train loss: 1.3621
+Epoch: 1 [ 2560/ 1003 samples] | train loss: 1.7215
+Epoch: 1 [ 3072/ 1204 samples] | train loss: 2.0438
+Epoch: 1 [ 3584/ 1405 samples] | train loss: 2.3877
+Epoch: 1 [ 4096/ 1605 samples] | train loss: 2.7482
+Epoch: 1 [ 4608/ 1806 samples] | train loss: 3.0693
+Epoch: 1 [ 5120/ 2007 samples] | train loss: 3.4153
+Epoch: 1 [ 5632/ 2207 samples] | train loss: 3.7575
+Epoch: 1 [ 6144/ 2408 samples] | train loss: 4.0903
+Epoch: 1 [ 6656/ 2609 samples] | train loss: 4.4300
+Epoch: 1 [ 7168/ 2810 samples] | train loss: 4.7417
+Epoch: 1 [ 7680/ 3010 samples] | train loss: 5.0520
+Epoch: 1 [ 8192/ 3211 samples] | train loss: 5.3618
+Epoch: 1 [ 8704/ 3412 samples] | train loss: 5.6895
+Epoch: 1 [ 9216/ 3612 samples] | train loss: 6.0073
+Epoch: 1 [ 9728/ 3813 samples] | train loss: 6.2980
+Epoch: 1 [10240/ 4014 samples] | train loss: 6.6207
+Epoch: 1 [10752/ 4214 samples] | train loss: 6.9314
+Epoch: 1 [11264/ 4415 samples] | train loss: 7.2765
+Epoch: 1 [11776/ 4616 samples] | train loss: 7.5953
+Epoch: 1 [12288/ 4816 samples] | train loss: 7.9018
+Epoch: 1 [12800/ 5017 samples] | train loss: 8.2091
+Epoch: 1 [13312/ 5218 samples] | train loss: 8.5193
+Epoch: 1 [13824/ 5418 samples] | train loss: 8.8440
+Epoch: 1 [14336/ 5619 samples] | train loss: 9.1138
+Epoch: 1 [14848/ 5820 samples] | train loss: 9.4579
+Epoch: 1 [15360/ 6020 samples] | train loss: 9.7629
+Epoch: 1 [15872/ 6221 samples] | train loss: 10.0748
+Epoch: 1 [16384/ 6422 samples] | train loss: 10.3891
+Epoch: 1 [16896/ 6622 samples] | train loss: 10.6952
+Epoch: 1 [17408/ 6823 samples] | train loss: 11.0032
+Epoch: 1 [17920/ 7024 samples] | train loss: 11.3401
+Epoch: 1 [18432/ 7225 samples] | train loss: 11.6181
+Epoch: 1 [18944/ 7425 samples] | train loss: 11.9243
+Epoch: 1 [19456/ 7626 samples] | train loss: 12.2234
+Epoch: 1 [19968/ 7827 samples] | train loss: 12.5078
+Epoch: 1 [20480/ 8027 samples] | train loss: 12.8192
+Epoch: 1 [20992/ 8228 samples] | train loss: 13.1145
+Epoch: 1 [21504/ 8429 samples] | train loss: 13.3753
+Epoch: 1 [22016/ 8629 samples] | train loss: 13.6929
+Epoch: 1 [22528/ 8830 samples] | train loss: 13.9911
+Epoch: 1 [23040/ 9031 samples] | train loss: 14.3045
+Epoch: 1 [23552/ 9231 samples] | train loss: 14.5960
+Epoch: 1 [24064/ 9432 samples] | train loss: 14.9244
+Epoch: 1 [24576/ 9633 samples] | train loss: 15.2254
+Epoch: 1 [25088/ 9833 samples] | train loss: 15.5335
+Epoch: 1 [25600/10034 samples] | train loss: 15.5243
+Epoch: 1 [26112/10235 samples] | train loss: 15.1789
+Epoch: 1 [26624/10435 samples] | train loss: 14.7371
+Epoch: 1 [27136/10636 samples] | train loss: 14.3923
+Epoch: 1 [27648/10837 samples] | train loss: 13.9961
+Epoch: 1 [28160/11037 samples] | train loss: 13.5927
+Epoch: 1 [28672/11238 samples] | train loss: 13.2183
+Epoch: 1 [29184/11439 samples] | train loss: 12.8895
+Epoch: 1 [29696/11640 samples] | train loss: 12.5418
+Epoch: 1 [30208/11840 samples] | train loss: 12.2324
+Epoch: 1 [30720/12041 samples] | train loss: 11.8805
+Epoch: 1 [31232/12242 samples] | train loss: 11.4935
+Epoch: 1 [31744/12442 samples] | train loss: 11.1893
+Epoch: 1 [32256/12643 samples] | train loss: 10.8969
+Epoch: 1 [32768/12844 samples] | train loss: 10.5878
+Epoch: 1 [33280/13044 samples] | train loss: 10.2915
+Epoch: 1 [33792/13245 samples] | train loss: 9.9589
+Epoch: 1 [34304/13446 samples] | train loss: 9.5998
+Epoch: 1 [34816/13646 samples] | train loss: 9.3066
+Epoch: 1 [35328/13847 samples] | train loss: 9.0372
+Epoch: 1 [35840/14048 samples] | train loss: 8.7314
+Epoch: 1 [36352/14248 samples] | train loss: 8.4501
+Epoch: 1 [36864/14449 samples] | train loss: 8.1043
+Epoch: 1 [37376/14650 samples] | train loss: 7.7583
+Epoch: 1 [37888/14850 samples] | train loss: 7.4267
+Epoch: 1 [38400/15051 samples] | train loss: 7.0846
+Epoch: 1 [38912/15252 samples] | train loss: 6.7743
+Epoch: 1 [39424/15452 samples] | train loss: 6.5070
+Epoch: 1 [39936/15653 samples] | train loss: 6.2347
+Epoch: 1 [40448/15854 samples] | train loss: 5.9159
+Epoch: 1 [40960/16055 samples] | train loss: 5.6643
+Epoch: 1 [41472/16255 samples] | train loss: 5.3010
+Epoch: 1 [41984/16456 samples] | train loss: 4.9907
+Epoch: 1 [42496/16657 samples] | train loss: 4.7009
+Epoch: 1 [43008/16857 samples] | train loss: 4.3880
+Epoch: 1 [43520/17058 samples] | train loss: 4.1008
+Epoch: 1 [44032/17259 samples] | train loss: 3.8090
+Epoch: 1 [44544/17459 samples] | train loss: 3.5395
+Epoch: 1 [45056/17660 samples] | train loss: 3.2575
+Epoch: 1 [45568/17861 samples] | train loss: 2.9799
+Epoch: 1 [46080/18061 samples] | train loss: 2.6709
+Epoch: 1 [46592/18262 samples] | train loss: 2.4054
+Epoch: 1 [47104/18463 samples] | train loss: 2.0868
+Epoch: 1 [47616/18663 samples] | train loss: 1.8319
+Epoch: 1 [48128/18864 samples] | train loss: 1.5095
+Epoch: 1 [48640/19065 samples] | train loss: 1.2063
+Epoch: 1 [49152/19265 samples] | train loss: 0.9330
+Epoch: 1 [49664/19466 samples] | train loss: 0.5905
+Epoch: 1 [50176/19667 samples] | train loss: 0.2960
+Epoch: 1 [50688/19867 samples] | train loss: 0.0000
+Epoch: 1 [51200/20068 samples] | train loss: 30.6956
+Epoch: 1 [51712/20269 samples] | train loss: 30.6818
+Epoch: 1 [52224/20470 samples] | train loss: 30.6621
+Epoch: 1 [52736/20670 samples] | train loss: 30.6496
+Epoch: 1 [53248/20871 samples] | train loss: 30.5976
+Epoch: 1 [53760/21072 samples] | train loss: 30.5454
+Epoch: 1 [54272/21272 samples] | train loss: 30.5292
+Epoch: 1 [54784/21473 samples] | train loss: 30.5001
+Epoch: 1 [55296/21674 samples] | train loss: 30.4132
+Epoch: 1 [55808/21874 samples] | train loss: 30.3812
+Epoch: 1 [56320/22075 samples] | train loss: 30.3838
+Epoch: 1 [56832/22276 samples] | train loss: 30.3403
+Epoch: 1 [57344/22476 samples] | train loss: 30.3046
+Epoch: 1 [57856/22677 samples] | train loss: 30.2286
+Epoch: 1 [58368/22878 samples] | train loss: 30.2121
+Epoch: 1 [58880/23078 samples] | train loss: 30.1973
+Epoch: 1 [59392/23279 samples] | train loss: 30.1521
+Epoch: 1 [59904/23480 samples] | train loss: 30.0999
+Epoch: 1 [60416/23680 samples] | train loss: 30.0432
+Epoch: 1 [60928/23881 samples] | train loss: 30.0539
+Epoch: 1 [61440/24082 samples] | train loss: 29.9901
+Epoch: 1 [61952/24282 samples] | train loss: 29.9681
+Epoch: 1 [62464/24483 samples] | train loss: 29.9303
+Epoch: 1 [62976/24684 samples] | train loss: 29.9343
+Epoch: 1 [63488/24885 samples] | train loss: 29.9256
+Epoch: 1 [64000/25085 samples] | train loss: 29.9093
+Epoch: 1 [64512/25286 samples] | train loss: 29.8677
+Epoch: 1 [65024/25487 samples] | train loss: 29.8615
+Epoch: 1 [65536/25687 samples] | train loss: 29.9082
+Epoch: 1 [66048/25888 samples] | train loss: 29.8644
+Epoch: 1 [66560/26089 samples] | train loss: 29.8147
+Epoch: 1 [67072/26289 samples] | train loss: 29.8159
+Epoch: 1 [67584/26490 samples] | train loss: 29.8168
+Epoch: 1 [68096/26691 samples] | train loss: 29.8282
+Epoch: 1 [68608/26891 samples] | train loss: 29.8249
+Epoch: 1 [69120/27092 samples] | train loss: 29.7802
+Epoch: 1 [69632/27293 samples] | train loss: 29.8143
+Epoch: 1 [70144/27493 samples] | train loss: 29.8273
+Epoch: 1 [70656/27694 samples] | train loss: 29.8217
+Epoch: 1 [71168/27895 samples] | train loss: 29.8037
+Epoch: 1 [71680/28095 samples] | train loss: 29.7732
+Epoch: 1 [72192/28296 samples] | train loss: 29.7719
+Epoch: 1 [72704/28497 samples] | train loss: 29.7827
+Epoch: 1 [73216/28697 samples] | train loss: 29.7640
+Epoch: 1 [73728/28898 samples] | train loss: 29.7618
+Epoch: 1 [74240/29099 samples] | train loss: 29.7356
+Epoch: 1 [74752/29300 samples] | train loss: 29.6719
+Epoch: 1 [75264/29500 samples] | train loss: 29.6372
+Epoch: 1 [75776/29701 samples] | train loss: 29.6223
+Epoch: 1 [76288/29902 samples] | train loss: 29.6104
+Epoch: 1 [76800/30102 samples] | train loss: 29.5930
+Epoch: 1 [77312/30303 samples] | train loss: 29.5544
+Epoch: 1 [77824/30504 samples] | train loss: 29.5403
+Epoch: 1 [78336/30704 samples] | train loss: 29.5010
+Epoch: 1 [78848/30905 samples] | train loss: 29.5609
+Epoch: 1 [79360/31106 samples] | train loss: 29.6000
+Epoch: 1 [79872/31306 samples] | train loss: 29.5862
+Epoch: 1 [80384/31507 samples] | train loss: 29.5707
+Epoch: 1 [80896/31708 samples] | train loss: 29.5425
+Epoch: 1 [81408/31908 samples] | train loss: 29.5584
+Epoch: 1 [81920/32109 samples] | train loss: 29.5556
+Epoch: 1 [82432/32310 samples] | train loss: 29.5322
+Epoch: 1 [82944/32510 samples] | train loss: 29.5002
+Epoch: 1 [83456/32711 samples] | train loss: 29.4226
+Epoch: 1 [83968/32912 samples] | train loss: 29.3740
+Epoch: 1 [84480/33112 samples] | train loss: 29.3283
+Epoch: 1 [84992/33313 samples] | train loss: 29.2890
+Epoch: 1 [85504/33514 samples] | train loss: 29.2570
+Epoch: 1 [86016/33715 samples] | train loss: 29.2243
+Epoch: 1 [86528/33915 samples] | train loss: 29.2195
+Epoch: 1 [87040/34116 samples] | train loss: 29.2055
+Epoch: 1 [87552/34317 samples] | train loss: 29.1487
+Epoch: 1 [88064/34517 samples] | train loss: 29.2038
+Epoch: 1 [88576/34718 samples] | train loss: 29.1954
+Epoch: 1 [89088/34919 samples] | train loss: 29.2002
+Epoch: 1 [89600/35119 samples] | train loss: 29.1819
+Epoch: 1 [90112/35320 samples] | train loss: 29.1832
+Epoch: 1 [90624/35521 samples] | train loss: 29.1088
+Epoch: 1 [91136/35721 samples] | train loss: 29.0671
+Epoch: 1 [91648/35922 samples] | train loss: 29.1286
+Epoch: 1 [92160/36123 samples] | train loss: 29.1285
+Epoch: 1 [92672/36323 samples] | train loss: 29.1100
+Epoch: 1 [93184/36524 samples] | train loss: 29.1083
+Epoch: 1 [93696/36725 samples] | train loss: 29.0783
+Epoch: 1 [94208/36925 samples] | train loss: 29.0807
+Epoch: 1 [94720/37126 samples] | train loss: 29.0572
+Epoch: 1 [95232/37327 samples] | train loss: 29.0977
+Epoch: 1 [95744/37527 samples] | train loss: 29.0676
+Epoch: 1 [96256/37728 samples] | train loss: 29.0291
+Epoch: 1 [96768/37929 samples] | train loss: 29.0042
+Epoch: 1 [97280/38130 samples] | train loss: 29.0356
+Epoch: 1 [97792/38330 samples] | train loss: 28.9959
+Epoch: 1 [98304/38531 samples] | train loss: 28.9866
+Epoch: 1 [98816/38732 samples] | train loss: 28.9970
+Epoch: 1 [99328/38932 samples] | train loss: 28.9463
+Epoch: 1 [99840/39133 samples] | train loss: 28.9072
+Epoch: 1 [100352/39334 samples] | train loss: 28.8884
+Epoch: 1 [100864/39534 samples] | train loss: 28.8656
+Epoch: 1 [101376/39735 samples] | train loss: 28.8474
+Epoch: 1 [101888/39936 samples] | train loss: 28.8581
+Epoch: 1 [102400/40136 samples] | train loss: 28.8745
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[59540  1090]
+ [ 6018   267]]
+Accuracy = 0.8937757015228271
+Precision Survived = 0.9082034230232239
+Precision Died = 0.19675755500793457
+Recall Survived = 0.9820221066474915
+Recall Died = 0.042482100427150726
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.6925616521092307
+Area Under the Precision Recall curve (AUPRC) = 0.18059465358933988
+F1 score (macro averaged) = 0.5067741715320686
+Epoch: 1 | Train Loss: 29.7980
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7504191837736023
+Area Under the Precision Recall curve (AUPRC) = 0.27856325055743136
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 1 | Validation Loss: 25.0191
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.752486756556156
+Area Under the Precision Recall curve (AUPRC) = 0.29632338343625986
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.8973
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 2 [    0/    0 samples] | train loss: 0.0000
+Epoch: 2 [  512/  201 samples] | train loss: 0.2585
+Epoch: 2 [ 1024/  401 samples] | train loss: 0.5413
+Epoch: 2 [ 1536/  602 samples] | train loss: 0.7915
+Epoch: 2 [ 2048/  803 samples] | train loss: 1.1363
+Epoch: 2 [ 2560/ 1003 samples] | train loss: 1.4439
+Epoch: 2 [ 3072/ 1204 samples] | train loss: 1.7154
+Epoch: 2 [ 3584/ 1405 samples] | train loss: 2.0040
+Epoch: 2 [ 4096/ 1605 samples] | train loss: 2.3317
+Epoch: 2 [ 4608/ 1806 samples] | train loss: 2.6175
+Epoch: 2 [ 5120/ 2007 samples] | train loss: 2.9315
+Epoch: 2 [ 5632/ 2207 samples] | train loss: 3.2337
+Epoch: 2 [ 6144/ 2408 samples] | train loss: 3.5179
+Epoch: 2 [ 6656/ 2609 samples] | train loss: 3.8161
+Epoch: 2 [ 7168/ 2810 samples] | train loss: 4.0843
+Epoch: 2 [ 7680/ 3010 samples] | train loss: 4.3552
+Epoch: 2 [ 8192/ 3211 samples] | train loss: 4.6183
+Epoch: 2 [ 8704/ 3412 samples] | train loss: 4.9208
+Epoch: 2 [ 9216/ 3612 samples] | train loss: 5.1953
+Epoch: 2 [ 9728/ 3813 samples] | train loss: 5.4446
+Epoch: 2 [10240/ 4014 samples] | train loss: 5.7241
+Epoch: 2 [10752/ 4214 samples] | train loss: 5.9926
+Epoch: 2 [11264/ 4415 samples] | train loss: 6.2987
+Epoch: 2 [11776/ 4616 samples] | train loss: 6.5760
+Epoch: 2 [12288/ 4816 samples] | train loss: 6.8465
+Epoch: 2 [12800/ 5017 samples] | train loss: 7.1178
+Epoch: 2 [13312/ 5218 samples] | train loss: 7.3910
+Epoch: 2 [13824/ 5418 samples] | train loss: 7.6904
+Epoch: 2 [14336/ 5619 samples] | train loss: 7.9184
+Epoch: 2 [14848/ 5820 samples] | train loss: 8.2269
+Epoch: 2 [15360/ 6020 samples] | train loss: 8.4970
+Epoch: 2 [15872/ 6221 samples] | train loss: 8.7759
+Epoch: 2 [16384/ 6422 samples] | train loss: 9.0664
+Epoch: 2 [16896/ 6622 samples] | train loss: 9.3420
+Epoch: 2 [17408/ 6823 samples] | train loss: 9.6144
+Epoch: 2 [17920/ 7024 samples] | train loss: 9.9205
+Epoch: 2 [18432/ 7225 samples] | train loss: 10.1544
+Epoch: 2 [18944/ 7425 samples] | train loss: 10.4344
+Epoch: 2 [19456/ 7626 samples] | train loss: 10.7060
+Epoch: 2 [19968/ 7827 samples] | train loss: 10.9461
+Epoch: 2 [20480/ 8027 samples] | train loss: 11.2305
+Epoch: 2 [20992/ 8228 samples] | train loss: 11.4987
+Epoch: 2 [21504/ 8429 samples] | train loss: 11.7250
+Epoch: 2 [22016/ 8629 samples] | train loss: 12.0102
+Epoch: 2 [22528/ 8830 samples] | train loss: 12.2820
+Epoch: 2 [23040/ 9031 samples] | train loss: 12.5799
+Epoch: 2 [23552/ 9231 samples] | train loss: 12.8463
+Epoch: 2 [24064/ 9432 samples] | train loss: 13.1561
+Epoch: 2 [24576/ 9633 samples] | train loss: 13.4336
+Epoch: 2 [25088/ 9833 samples] | train loss: 13.7256
+Epoch: 2 [25600/10034 samples] | train loss: 13.7574
+Epoch: 2 [26112/10235 samples] | train loss: 13.5194
+Epoch: 2 [26624/10435 samples] | train loss: 13.1390
+Epoch: 2 [27136/10636 samples] | train loss: 12.8735
+Epoch: 2 [27648/10837 samples] | train loss: 12.5175
+Epoch: 2 [28160/11037 samples] | train loss: 12.1557
+Epoch: 2 [28672/11238 samples] | train loss: 11.8547
+Epoch: 2 [29184/11439 samples] | train loss: 11.5791
+Epoch: 2 [29696/11640 samples] | train loss: 11.2778
+Epoch: 2 [30208/11840 samples] | train loss: 11.0261
+Epoch: 2 [30720/12041 samples] | train loss: 10.7403
+Epoch: 2 [31232/12242 samples] | train loss: 10.4058
+Epoch: 2 [31744/12442 samples] | train loss: 10.1433
+Epoch: 2 [32256/12643 samples] | train loss: 9.9015
+Epoch: 2 [32768/12844 samples] | train loss: 9.6504
+Epoch: 2 [33280/13044 samples] | train loss: 9.3950
+Epoch: 2 [33792/13245 samples] | train loss: 9.0997
+Epoch: 2 [34304/13446 samples] | train loss: 8.7846
+Epoch: 2 [34816/13646 samples] | train loss: 8.5389
+Epoch: 2 [35328/13847 samples] | train loss: 8.3172
+Epoch: 2 [35840/14048 samples] | train loss: 8.0383
+Epoch: 2 [36352/14248 samples] | train loss: 7.7992
+Epoch: 2 [36864/14449 samples] | train loss: 7.4750
+Epoch: 2 [37376/14650 samples] | train loss: 7.1487
+Epoch: 2 [37888/14850 samples] | train loss: 6.8283
+Epoch: 2 [38400/15051 samples] | train loss: 6.5008
+Epoch: 2 [38912/15252 samples] | train loss: 6.2300
+Epoch: 2 [39424/15452 samples] | train loss: 5.9958
+Epoch: 2 [39936/15653 samples] | train loss: 5.7452
+Epoch: 2 [40448/15854 samples] | train loss: 5.4566
+Epoch: 2 [40960/16055 samples] | train loss: 5.2357
+Epoch: 2 [41472/16255 samples] | train loss: 4.8935
+Epoch: 2 [41984/16456 samples] | train loss: 4.6228
+Epoch: 2 [42496/16657 samples] | train loss: 4.3503
+Epoch: 2 [43008/16857 samples] | train loss: 4.0616
+Epoch: 2 [43520/17058 samples] | train loss: 3.8078
+Epoch: 2 [44032/17259 samples] | train loss: 3.5380
+Epoch: 2 [44544/17459 samples] | train loss: 3.2956
+Epoch: 2 [45056/17660 samples] | train loss: 3.0368
+Epoch: 2 [45568/17861 samples] | train loss: 2.7838
+Epoch: 2 [46080/18061 samples] | train loss: 2.4945
+Epoch: 2 [46592/18262 samples] | train loss: 2.2400
+Epoch: 2 [47104/18463 samples] | train loss: 1.9378
+Epoch: 2 [47616/18663 samples] | train loss: 1.7100
+Epoch: 2 [48128/18864 samples] | train loss: 1.4168
+Epoch: 2 [48640/19065 samples] | train loss: 1.1367
+Epoch: 2 [49152/19265 samples] | train loss: 0.8942
+Epoch: 2 [49664/19466 samples] | train loss: 0.5632
+Epoch: 2 [50176/19667 samples] | train loss: 0.2847
+Epoch: 2 [50688/19867 samples] | train loss: 0.0000
+Epoch: 2 [51200/20068 samples] | train loss: 27.7933
+Epoch: 2 [51712/20269 samples] | train loss: 27.8312
+Epoch: 2 [52224/20470 samples] | train loss: 27.8592
+Epoch: 2 [52736/20670 samples] | train loss: 27.9137
+Epoch: 2 [53248/20871 samples] | train loss: 27.8842
+Epoch: 2 [53760/21072 samples] | train loss: 27.8693
+Epoch: 2 [54272/21272 samples] | train loss: 27.8863
+Epoch: 2 [54784/21473 samples] | train loss: 27.8870
+Epoch: 2 [55296/21674 samples] | train loss: 27.8141
+Epoch: 2 [55808/21874 samples] | train loss: 27.7976
+Epoch: 2 [56320/22075 samples] | train loss: 27.8182
+Epoch: 2 [56832/22276 samples] | train loss: 27.8105
+Epoch: 2 [57344/22476 samples] | train loss: 27.8048
+Epoch: 2 [57856/22677 samples] | train loss: 27.7513
+Epoch: 2 [58368/22878 samples] | train loss: 27.7490
+Epoch: 2 [58880/23078 samples] | train loss: 27.7644
+Epoch: 2 [59392/23279 samples] | train loss: 27.7505
+Epoch: 2 [59904/23480 samples] | train loss: 27.7058
+Epoch: 2 [60416/23680 samples] | train loss: 27.6858
+Epoch: 2 [60928/23881 samples] | train loss: 27.7226
+Epoch: 2 [61440/24082 samples] | train loss: 27.6868
+Epoch: 2 [61952/24282 samples] | train loss: 27.6859
+Epoch: 2 [62464/24483 samples] | train loss: 27.6705
+Epoch: 2 [62976/24684 samples] | train loss: 27.7087
+Epoch: 2 [63488/24885 samples] | train loss: 27.7157
+Epoch: 2 [64000/25085 samples] | train loss: 27.7114
+Epoch: 2 [64512/25286 samples] | train loss: 27.6932
+Epoch: 2 [65024/25487 samples] | train loss: 27.7072
+Epoch: 2 [65536/25687 samples] | train loss: 27.7838
+Epoch: 2 [66048/25888 samples] | train loss: 27.7615
+Epoch: 2 [66560/26089 samples] | train loss: 27.7328
+Epoch: 2 [67072/26289 samples] | train loss: 27.7630
+Epoch: 2 [67584/26490 samples] | train loss: 27.7698
+Epoch: 2 [68096/26691 samples] | train loss: 27.8055
+Epoch: 2 [68608/26891 samples] | train loss: 27.8291
+Epoch: 2 [69120/27092 samples] | train loss: 27.8076
+Epoch: 2 [69632/27293 samples] | train loss: 27.8744
+Epoch: 2 [70144/27493 samples] | train loss: 27.9026
+Epoch: 2 [70656/27694 samples] | train loss: 27.9131
+Epoch: 2 [71168/27895 samples] | train loss: 27.9284
+Epoch: 2 [71680/28095 samples] | train loss: 27.9063
+Epoch: 2 [72192/28296 samples] | train loss: 27.9094
+Epoch: 2 [72704/28497 samples] | train loss: 27.9544
+Epoch: 2 [73216/28697 samples] | train loss: 27.9567
+Epoch: 2 [73728/28898 samples] | train loss: 27.9700
+Epoch: 2 [74240/29099 samples] | train loss: 27.9474
+Epoch: 2 [74752/29300 samples] | train loss: 27.8982
+Epoch: 2 [75264/29500 samples] | train loss: 27.8692
+Epoch: 2 [75776/29701 samples] | train loss: 27.8716
+Epoch: 2 [76288/29902 samples] | train loss: 27.8562
+Epoch: 2 [76800/30102 samples] | train loss: 27.8444
+Epoch: 2 [77312/30303 samples] | train loss: 27.8149
+Epoch: 2 [77824/30504 samples] | train loss: 27.8136
+Epoch: 2 [78336/30704 samples] | train loss: 27.7884
+Epoch: 2 [78848/30905 samples] | train loss: 27.8719
+Epoch: 2 [79360/31106 samples] | train loss: 27.9325
+Epoch: 2 [79872/31306 samples] | train loss: 27.9279
+Epoch: 2 [80384/31507 samples] | train loss: 27.9337
+Epoch: 2 [80896/31708 samples] | train loss: 27.9205
+Epoch: 2 [81408/31908 samples] | train loss: 27.9465
+Epoch: 2 [81920/32109 samples] | train loss: 27.9501
+Epoch: 2 [82432/32310 samples] | train loss: 27.9445
+Epoch: 2 [82944/32510 samples] | train loss: 27.9299
+Epoch: 2 [83456/32711 samples] | train loss: 27.8475
+Epoch: 2 [83968/32912 samples] | train loss: 27.8107
+Epoch: 2 [84480/33112 samples] | train loss: 27.7919
+Epoch: 2 [84992/33313 samples] | train loss: 27.7581
+Epoch: 2 [85504/33514 samples] | train loss: 27.7343
+Epoch: 2 [86016/33715 samples] | train loss: 27.7215
+Epoch: 2 [86528/33915 samples] | train loss: 27.7328
+Epoch: 2 [87040/34116 samples] | train loss: 27.7311
+Epoch: 2 [87552/34317 samples] | train loss: 27.6894
+Epoch: 2 [88064/34517 samples] | train loss: 27.7563
+Epoch: 2 [88576/34718 samples] | train loss: 27.7626
+Epoch: 2 [89088/34919 samples] | train loss: 27.7838
+Epoch: 2 [89600/35119 samples] | train loss: 27.7766
+Epoch: 2 [90112/35320 samples] | train loss: 27.7855
+Epoch: 2 [90624/35521 samples] | train loss: 27.7236
+Epoch: 2 [91136/35721 samples] | train loss: 27.6874
+Epoch: 2 [91648/35922 samples] | train loss: 27.7676
+Epoch: 2 [92160/36123 samples] | train loss: 27.7655
+Epoch: 2 [92672/36323 samples] | train loss: 27.7604
+Epoch: 2 [93184/36524 samples] | train loss: 27.7547
+Epoch: 2 [93696/36725 samples] | train loss: 27.7288
+Epoch: 2 [94208/36925 samples] | train loss: 27.7456
+Epoch: 2 [94720/37126 samples] | train loss: 27.7298
+Epoch: 2 [95232/37327 samples] | train loss: 27.7794
+Epoch: 2 [95744/37527 samples] | train loss: 27.7680
+Epoch: 2 [96256/37728 samples] | train loss: 27.7309
+Epoch: 2 [96768/37929 samples] | train loss: 27.7205
+Epoch: 2 [97280/38130 samples] | train loss: 27.7505
+Epoch: 2 [97792/38330 samples] | train loss: 27.7159
+Epoch: 2 [98304/38531 samples] | train loss: 27.7193
+Epoch: 2 [98816/38732 samples] | train loss: 27.7529
+Epoch: 2 [99328/38932 samples] | train loss: 27.6973
+Epoch: 2 [99840/39133 samples] | train loss: 27.6637
+Epoch: 2 [100352/39334 samples] | train loss: 27.6454
+Epoch: 2 [100864/39534 samples] | train loss: 27.6312
+Epoch: 2 [101376/39735 samples] | train loss: 27.6199
+Epoch: 2 [101888/39936 samples] | train loss: 27.6495
+Epoch: 2 [102400/40136 samples] | train loss: 27.6555
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60700     0]
+ [ 6215     0]]
+Accuracy = 0.9071210026741028
+Precision Survived = 0.9071210026741028
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7378758477457286
+Area Under the Precision Recall curve (AUPRC) = 0.21315649031834663
+F1 score (macro averaged) = 0.4756494142538103
+Epoch: 2 | Train Loss: 27.7451
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7579737400836123
+Area Under the Precision Recall curve (AUPRC) = 0.2920917418863013
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 2 | Validation Loss: 24.8434
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7569556481545634
+Area Under the Precision Recall curve (AUPRC) = 0.3150169243892768
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.8192
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 3 [    0/    0 samples] | train loss: 0.0000
+Epoch: 3 [  512/  201 samples] | train loss: 0.2458
+Epoch: 3 [ 1024/  401 samples] | train loss: 0.5249
+Epoch: 3 [ 1536/  602 samples] | train loss: 0.7722
+Epoch: 3 [ 2048/  803 samples] | train loss: 1.1044
+Epoch: 3 [ 2560/ 1003 samples] | train loss: 1.4029
+Epoch: 3 [ 3072/ 1204 samples] | train loss: 1.6641
+Epoch: 3 [ 3584/ 1405 samples] | train loss: 1.9403
+Epoch: 3 [ 4096/ 1605 samples] | train loss: 2.2658
+Epoch: 3 [ 4608/ 1806 samples] | train loss: 2.5505
+Epoch: 3 [ 5120/ 2007 samples] | train loss: 2.8555
+Epoch: 3 [ 5632/ 2207 samples] | train loss: 3.1437
+Epoch: 3 [ 6144/ 2408 samples] | train loss: 3.4022
+Epoch: 3 [ 6656/ 2609 samples] | train loss: 3.6985
+Epoch: 3 [ 7168/ 2810 samples] | train loss: 3.9605
+Epoch: 3 [ 7680/ 3010 samples] | train loss: 4.2280
+Epoch: 3 [ 8192/ 3211 samples] | train loss: 4.4765
+Epoch: 3 [ 8704/ 3412 samples] | train loss: 4.7837
+Epoch: 3 [ 9216/ 3612 samples] | train loss: 5.0528
+Epoch: 3 [ 9728/ 3813 samples] | train loss: 5.2898
+Epoch: 3 [10240/ 4014 samples] | train loss: 5.5625
+Epoch: 3 [10752/ 4214 samples] | train loss: 5.8141
+Epoch: 3 [11264/ 4415 samples] | train loss: 6.1183
+Epoch: 3 [11776/ 4616 samples] | train loss: 6.3796
+Epoch: 3 [12288/ 4816 samples] | train loss: 6.6444
+Epoch: 3 [12800/ 5017 samples] | train loss: 6.9087
+Epoch: 3 [13312/ 5218 samples] | train loss: 7.1768
+Epoch: 3 [13824/ 5418 samples] | train loss: 7.4726
+Epoch: 3 [14336/ 5619 samples] | train loss: 7.6903
+Epoch: 3 [14848/ 5820 samples] | train loss: 7.9932
+Epoch: 3 [15360/ 6020 samples] | train loss: 8.2632
+Epoch: 3 [15872/ 6221 samples] | train loss: 8.5458
+Epoch: 3 [16384/ 6422 samples] | train loss: 8.8257
+Epoch: 3 [16896/ 6622 samples] | train loss: 9.0836
+Epoch: 3 [17408/ 6823 samples] | train loss: 9.3539
+Epoch: 3 [17920/ 7024 samples] | train loss: 9.6503
+Epoch: 3 [18432/ 7225 samples] | train loss: 9.8796
+Epoch: 3 [18944/ 7425 samples] | train loss: 10.1490
+Epoch: 3 [19456/ 7626 samples] | train loss: 10.4072
+Epoch: 3 [19968/ 7827 samples] | train loss: 10.6463
+Epoch: 3 [20480/ 8027 samples] | train loss: 10.9221
+Epoch: 3 [20992/ 8228 samples] | train loss: 11.1760
+Epoch: 3 [21504/ 8429 samples] | train loss: 11.3931
+Epoch: 3 [22016/ 8629 samples] | train loss: 11.6812
+Epoch: 3 [22528/ 8830 samples] | train loss: 11.9446
+Epoch: 3 [23040/ 9031 samples] | train loss: 12.2322
+Epoch: 3 [23552/ 9231 samples] | train loss: 12.4957
+Epoch: 3 [24064/ 9432 samples] | train loss: 12.8065
+Epoch: 3 [24576/ 9633 samples] | train loss: 13.0824
+Epoch: 3 [25088/ 9833 samples] | train loss: 13.3682
+Epoch: 3 [25600/10034 samples] | train loss: 13.4178
+Epoch: 3 [26112/10235 samples] | train loss: 13.1791
+Epoch: 3 [26624/10435 samples] | train loss: 12.8123
+Epoch: 3 [27136/10636 samples] | train loss: 12.5603
+Epoch: 3 [27648/10837 samples] | train loss: 12.1920
+Epoch: 3 [28160/11037 samples] | train loss: 11.8447
+Epoch: 3 [28672/11238 samples] | train loss: 11.5651
+Epoch: 3 [29184/11439 samples] | train loss: 11.2929
+Epoch: 3 [29696/11640 samples] | train loss: 10.9977
+Epoch: 3 [30208/11840 samples] | train loss: 10.7551
+Epoch: 3 [30720/12041 samples] | train loss: 10.4958
+Epoch: 3 [31232/12242 samples] | train loss: 10.1682
+Epoch: 3 [31744/12442 samples] | train loss: 9.9110
+Epoch: 3 [32256/12643 samples] | train loss: 9.6605
+Epoch: 3 [32768/12844 samples] | train loss: 9.4201
+Epoch: 3 [33280/13044 samples] | train loss: 9.1508
+Epoch: 3 [33792/13245 samples] | train loss: 8.8755
+Epoch: 3 [34304/13446 samples] | train loss: 8.5569
+Epoch: 3 [34816/13646 samples] | train loss: 8.3194
+Epoch: 3 [35328/13847 samples] | train loss: 8.1149
+Epoch: 3 [35840/14048 samples] | train loss: 7.8504
+Epoch: 3 [36352/14248 samples] | train loss: 7.6133
+Epoch: 3 [36864/14449 samples] | train loss: 7.2968
+Epoch: 3 [37376/14650 samples] | train loss: 6.9682
+Epoch: 3 [37888/14850 samples] | train loss: 6.6592
+Epoch: 3 [38400/15051 samples] | train loss: 6.3329
+Epoch: 3 [38912/15252 samples] | train loss: 6.0766
+Epoch: 3 [39424/15452 samples] | train loss: 5.8574
+Epoch: 3 [39936/15653 samples] | train loss: 5.6087
+Epoch: 3 [40448/15854 samples] | train loss: 5.3233
+Epoch: 3 [40960/16055 samples] | train loss: 5.0980
+Epoch: 3 [41472/16255 samples] | train loss: 4.7739
+Epoch: 3 [41984/16456 samples] | train loss: 4.5087
+Epoch: 3 [42496/16657 samples] | train loss: 4.2507
+Epoch: 3 [43008/16857 samples] | train loss: 3.9544
+Epoch: 3 [43520/17058 samples] | train loss: 3.7117
+Epoch: 3 [44032/17259 samples] | train loss: 3.4500
+Epoch: 3 [44544/17459 samples] | train loss: 3.2106
+Epoch: 3 [45056/17660 samples] | train loss: 2.9529
+Epoch: 3 [45568/17861 samples] | train loss: 2.7106
+Epoch: 3 [46080/18061 samples] | train loss: 2.4342
+Epoch: 3 [46592/18262 samples] | train loss: 2.1986
+Epoch: 3 [47104/18463 samples] | train loss: 1.9082
+Epoch: 3 [47616/18663 samples] | train loss: 1.6805
+Epoch: 3 [48128/18864 samples] | train loss: 1.4038
+Epoch: 3 [48640/19065 samples] | train loss: 1.1193
+Epoch: 3 [49152/19265 samples] | train loss: 0.8797
+Epoch: 3 [49664/19466 samples] | train loss: 0.5567
+Epoch: 3 [50176/19667 samples] | train loss: 0.2776
+Epoch: 3 [50688/19867 samples] | train loss: 0.0000
+Epoch: 3 [51200/20068 samples] | train loss: 27.1135
+Epoch: 3 [51712/20269 samples] | train loss: 27.1520
+Epoch: 3 [52224/20470 samples] | train loss: 27.1719
+Epoch: 3 [52736/20670 samples] | train loss: 27.2098
+Epoch: 3 [53248/20871 samples] | train loss: 27.1748
+Epoch: 3 [53760/21072 samples] | train loss: 27.1681
+Epoch: 3 [54272/21272 samples] | train loss: 27.1897
+Epoch: 3 [54784/21473 samples] | train loss: 27.1999
+Epoch: 3 [55296/21674 samples] | train loss: 27.1218
+Epoch: 3 [55808/21874 samples] | train loss: 27.1012
+Epoch: 3 [56320/22075 samples] | train loss: 27.1325
+Epoch: 3 [56832/22276 samples] | train loss: 27.1341
+Epoch: 3 [57344/22476 samples] | train loss: 27.1538
+Epoch: 3 [57856/22677 samples] | train loss: 27.0921
+Epoch: 3 [58368/22878 samples] | train loss: 27.0932
+Epoch: 3 [58880/23078 samples] | train loss: 27.0938
+Epoch: 3 [59392/23279 samples] | train loss: 27.0925
+Epoch: 3 [59904/23480 samples] | train loss: 27.0364
+Epoch: 3 [60416/23680 samples] | train loss: 27.0159
+Epoch: 3 [60928/23881 samples] | train loss: 27.0617
+Epoch: 3 [61440/24082 samples] | train loss: 27.0271
+Epoch: 3 [61952/24282 samples] | train loss: 27.0342
+Epoch: 3 [62464/24483 samples] | train loss: 27.0187
+Epoch: 3 [62976/24684 samples] | train loss: 27.0743
+Epoch: 3 [63488/24885 samples] | train loss: 27.0901
+Epoch: 3 [64000/25085 samples] | train loss: 27.0787
+Epoch: 3 [64512/25286 samples] | train loss: 27.0555
+Epoch: 3 [65024/25487 samples] | train loss: 27.0614
+Epoch: 3 [65536/25687 samples] | train loss: 27.1399
+Epoch: 3 [66048/25888 samples] | train loss: 27.1212
+Epoch: 3 [66560/26089 samples] | train loss: 27.0870
+Epoch: 3 [67072/26289 samples] | train loss: 27.1008
+Epoch: 3 [67584/26490 samples] | train loss: 27.1196
+Epoch: 3 [68096/26691 samples] | train loss: 27.1783
+Epoch: 3 [68608/26891 samples] | train loss: 27.2066
+Epoch: 3 [69120/27092 samples] | train loss: 27.1797
+Epoch: 3 [69632/27293 samples] | train loss: 27.2425
+Epoch: 3 [70144/27493 samples] | train loss: 27.2786
+Epoch: 3 [70656/27694 samples] | train loss: 27.2879
+Epoch: 3 [71168/27895 samples] | train loss: 27.3020
+Epoch: 3 [71680/28095 samples] | train loss: 27.2751
+Epoch: 3 [72192/28296 samples] | train loss: 27.3045
+Epoch: 3 [72704/28497 samples] | train loss: 27.3495
+Epoch: 3 [73216/28697 samples] | train loss: 27.3383
+Epoch: 3 [73728/28898 samples] | train loss: 27.3542
+Epoch: 3 [74240/29099 samples] | train loss: 27.3414
+Epoch: 3 [74752/29300 samples] | train loss: 27.2870
+Epoch: 3 [75264/29500 samples] | train loss: 27.2465
+Epoch: 3 [75776/29701 samples] | train loss: 27.2486
+Epoch: 3 [76288/29902 samples] | train loss: 27.2345
+Epoch: 3 [76800/30102 samples] | train loss: 27.2049
+Epoch: 3 [77312/30303 samples] | train loss: 27.1798
+Epoch: 3 [77824/30504 samples] | train loss: 27.1680
+Epoch: 3 [78336/30704 samples] | train loss: 27.1424
+Epoch: 3 [78848/30905 samples] | train loss: 27.2438
+Epoch: 3 [79360/31106 samples] | train loss: 27.3089
+Epoch: 3 [79872/31306 samples] | train loss: 27.3037
+Epoch: 3 [80384/31507 samples] | train loss: 27.3191
+Epoch: 3 [80896/31708 samples] | train loss: 27.3027
+Epoch: 3 [81408/31908 samples] | train loss: 27.3336
+Epoch: 3 [81920/32109 samples] | train loss: 27.3307
+Epoch: 3 [82432/32310 samples] | train loss: 27.3287
+Epoch: 3 [82944/32510 samples] | train loss: 27.3138
+Epoch: 3 [83456/32711 samples] | train loss: 27.2443
+Epoch: 3 [83968/32912 samples] | train loss: 27.2022
+Epoch: 3 [84480/33112 samples] | train loss: 27.1854
+Epoch: 3 [84992/33313 samples] | train loss: 27.1487
+Epoch: 3 [85504/33514 samples] | train loss: 27.1388
+Epoch: 3 [86016/33715 samples] | train loss: 27.1261
+Epoch: 3 [86528/33915 samples] | train loss: 27.1251
+Epoch: 3 [87040/34116 samples] | train loss: 27.1249
+Epoch: 3 [87552/34317 samples] | train loss: 27.0848
+Epoch: 3 [88064/34517 samples] | train loss: 27.1540
+Epoch: 3 [88576/34718 samples] | train loss: 27.1552
+Epoch: 3 [89088/34919 samples] | train loss: 27.1802
+Epoch: 3 [89600/35119 samples] | train loss: 27.1747
+Epoch: 3 [90112/35320 samples] | train loss: 27.1788
+Epoch: 3 [90624/35521 samples] | train loss: 27.1174
+Epoch: 3 [91136/35721 samples] | train loss: 27.0927
+Epoch: 3 [91648/35922 samples] | train loss: 27.1739
+Epoch: 3 [92160/36123 samples] | train loss: 27.1833
+Epoch: 3 [92672/36323 samples] | train loss: 27.1805
+Epoch: 3 [93184/36524 samples] | train loss: 27.1863
+Epoch: 3 [93696/36725 samples] | train loss: 27.1687
+Epoch: 3 [94208/36925 samples] | train loss: 27.1924
+Epoch: 3 [94720/37126 samples] | train loss: 27.1816
+Epoch: 3 [95232/37327 samples] | train loss: 27.2346
+Epoch: 3 [95744/37527 samples] | train loss: 27.2127
+Epoch: 3 [96256/37728 samples] | train loss: 27.1761
+Epoch: 3 [96768/37929 samples] | train loss: 27.1630
+Epoch: 3 [97280/38130 samples] | train loss: 27.1923
+Epoch: 3 [97792/38330 samples] | train loss: 27.1553
+Epoch: 3 [98304/38531 samples] | train loss: 27.1492
+Epoch: 3 [98816/38732 samples] | train loss: 27.1624
+Epoch: 3 [99328/38932 samples] | train loss: 27.1098
+Epoch: 3 [99840/39133 samples] | train loss: 27.0757
+Epoch: 3 [100352/39334 samples] | train loss: 27.0552
+Epoch: 3 [100864/39534 samples] | train loss: 27.0296
+Epoch: 3 [101376/39735 samples] | train loss: 27.0193
+Epoch: 3 [101888/39936 samples] | train loss: 27.0480
+Epoch: 3 [102400/40136 samples] | train loss: 27.0583
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60684     0]
+ [ 6231     0]]
+Accuracy = 0.9068818688392639
+Precision Survived = 0.9068818688392639
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.75319123586365
+Area Under the Precision Recall curve (AUPRC) = 0.228439026465808
+F1 score (macro averaged) = 0.475583664448781
+Epoch: 3 | Train Loss: 27.1064
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.760347769060435
+Area Under the Precision Recall curve (AUPRC) = 0.2957342125820863
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 3 | Validation Loss: 24.8392
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7590704322689161
+Area Under the Precision Recall curve (AUPRC) = 0.3175841678090642
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.8259
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 4 [    0/    0 samples] | train loss: 0.0000
+Epoch: 4 [  512/  201 samples] | train loss: 0.2466
+Epoch: 4 [ 1024/  401 samples] | train loss: 0.5199
+Epoch: 4 [ 1536/  602 samples] | train loss: 0.7616
+Epoch: 4 [ 2048/  803 samples] | train loss: 1.0964
+Epoch: 4 [ 2560/ 1003 samples] | train loss: 1.3905
+Epoch: 4 [ 3072/ 1204 samples] | train loss: 1.6400
+Epoch: 4 [ 3584/ 1405 samples] | train loss: 1.9095
+Epoch: 4 [ 4096/ 1605 samples] | train loss: 2.2179
+Epoch: 4 [ 4608/ 1806 samples] | train loss: 2.5066
+Epoch: 4 [ 5120/ 2007 samples] | train loss: 2.8104
+Epoch: 4 [ 5632/ 2207 samples] | train loss: 3.1007
+Epoch: 4 [ 6144/ 2408 samples] | train loss: 3.3563
+Epoch: 4 [ 6656/ 2609 samples] | train loss: 3.6479
+Epoch: 4 [ 7168/ 2810 samples] | train loss: 3.9059
+Epoch: 4 [ 7680/ 3010 samples] | train loss: 4.1529
+Epoch: 4 [ 8192/ 3211 samples] | train loss: 4.3910
+Epoch: 4 [ 8704/ 3412 samples] | train loss: 4.6851
+Epoch: 4 [ 9216/ 3612 samples] | train loss: 4.9564
+Epoch: 4 [ 9728/ 3813 samples] | train loss: 5.1878
+Epoch: 4 [10240/ 4014 samples] | train loss: 5.4639
+Epoch: 4 [10752/ 4214 samples] | train loss: 5.7166
+Epoch: 4 [11264/ 4415 samples] | train loss: 6.0139
+Epoch: 4 [11776/ 4616 samples] | train loss: 6.2765
+Epoch: 4 [12288/ 4816 samples] | train loss: 6.5327
+Epoch: 4 [12800/ 5017 samples] | train loss: 6.7943
+Epoch: 4 [13312/ 5218 samples] | train loss: 7.0476
+Epoch: 4 [13824/ 5418 samples] | train loss: 7.3299
+Epoch: 4 [14336/ 5619 samples] | train loss: 7.5353
+Epoch: 4 [14848/ 5820 samples] | train loss: 7.8511
+Epoch: 4 [15360/ 6020 samples] | train loss: 8.1213
+Epoch: 4 [15872/ 6221 samples] | train loss: 8.3980
+Epoch: 4 [16384/ 6422 samples] | train loss: 8.6718
+Epoch: 4 [16896/ 6622 samples] | train loss: 8.9379
+Epoch: 4 [17408/ 6823 samples] | train loss: 9.2101
+Epoch: 4 [17920/ 7024 samples] | train loss: 9.5018
+Epoch: 4 [18432/ 7225 samples] | train loss: 9.7331
+Epoch: 4 [18944/ 7425 samples] | train loss: 9.9924
+Epoch: 4 [19456/ 7626 samples] | train loss: 10.2489
+Epoch: 4 [19968/ 7827 samples] | train loss: 10.4764
+Epoch: 4 [20480/ 8027 samples] | train loss: 10.7644
+Epoch: 4 [20992/ 8228 samples] | train loss: 11.0153
+Epoch: 4 [21504/ 8429 samples] | train loss: 11.2309
+Epoch: 4 [22016/ 8629 samples] | train loss: 11.5051
+Epoch: 4 [22528/ 8830 samples] | train loss: 11.7545
+Epoch: 4 [23040/ 9031 samples] | train loss: 12.0405
+Epoch: 4 [23552/ 9231 samples] | train loss: 12.2980
+Epoch: 4 [24064/ 9432 samples] | train loss: 12.5987
+Epoch: 4 [24576/ 9633 samples] | train loss: 12.8671
+Epoch: 4 [25088/ 9833 samples] | train loss: 13.1414
+Epoch: 4 [25600/10034 samples] | train loss: 13.1841
+Epoch: 4 [26112/10235 samples] | train loss: 12.9578
+Epoch: 4 [26624/10435 samples] | train loss: 12.5747
+Epoch: 4 [27136/10636 samples] | train loss: 12.3296
+Epoch: 4 [27648/10837 samples] | train loss: 11.9775
+Epoch: 4 [28160/11037 samples] | train loss: 11.6249
+Epoch: 4 [28672/11238 samples] | train loss: 11.3400
+Epoch: 4 [29184/11439 samples] | train loss: 11.0821
+Epoch: 4 [29696/11640 samples] | train loss: 10.8139
+Epoch: 4 [30208/11840 samples] | train loss: 10.5736
+Epoch: 4 [30720/12041 samples] | train loss: 10.2904
+Epoch: 4 [31232/12242 samples] | train loss: 9.9620
+Epoch: 4 [31744/12442 samples] | train loss: 9.7144
+Epoch: 4 [32256/12643 samples] | train loss: 9.5007
+Epoch: 4 [32768/12844 samples] | train loss: 9.2614
+Epoch: 4 [33280/13044 samples] | train loss: 9.0068
+Epoch: 4 [33792/13245 samples] | train loss: 8.7258
+Epoch: 4 [34304/13446 samples] | train loss: 8.4086
+Epoch: 4 [34816/13646 samples] | train loss: 8.1787
+Epoch: 4 [35328/13847 samples] | train loss: 7.9772
+Epoch: 4 [35840/14048 samples] | train loss: 7.7046
+Epoch: 4 [36352/14248 samples] | train loss: 7.4716
+Epoch: 4 [36864/14449 samples] | train loss: 7.1717
+Epoch: 4 [37376/14650 samples] | train loss: 6.8597
+Epoch: 4 [37888/14850 samples] | train loss: 6.5611
+Epoch: 4 [38400/15051 samples] | train loss: 6.2340
+Epoch: 4 [38912/15252 samples] | train loss: 6.0022
+Epoch: 4 [39424/15452 samples] | train loss: 5.7827
+Epoch: 4 [39936/15653 samples] | train loss: 5.5529
+Epoch: 4 [40448/15854 samples] | train loss: 5.2650
+Epoch: 4 [40960/16055 samples] | train loss: 5.0628
+Epoch: 4 [41472/16255 samples] | train loss: 4.7301
+Epoch: 4 [41984/16456 samples] | train loss: 4.4546
+Epoch: 4 [42496/16657 samples] | train loss: 4.2004
+Epoch: 4 [43008/16857 samples] | train loss: 3.9164
+Epoch: 4 [43520/17058 samples] | train loss: 3.6854
+Epoch: 4 [44032/17259 samples] | train loss: 3.4188
+Epoch: 4 [44544/17459 samples] | train loss: 3.1940
+Epoch: 4 [45056/17660 samples] | train loss: 2.9493
+Epoch: 4 [45568/17861 samples] | train loss: 2.6949
+Epoch: 4 [46080/18061 samples] | train loss: 2.4210
+Epoch: 4 [46592/18262 samples] | train loss: 2.1760
+Epoch: 4 [47104/18463 samples] | train loss: 1.8879
+Epoch: 4 [47616/18663 samples] | train loss: 1.6538
+Epoch: 4 [48128/18864 samples] | train loss: 1.3845
+Epoch: 4 [48640/19065 samples] | train loss: 1.1108
+Epoch: 4 [49152/19265 samples] | train loss: 0.8782
+Epoch: 4 [49664/19466 samples] | train loss: 0.5633
+Epoch: 4 [50176/19667 samples] | train loss: 0.2610
+Epoch: 4 [50688/19867 samples] | train loss: 0.0000
+Epoch: 4 [51200/20068 samples] | train loss: 26.7276
+Epoch: 4 [51712/20269 samples] | train loss: 26.7650
+Epoch: 4 [52224/20470 samples] | train loss: 26.7894
+Epoch: 4 [52736/20670 samples] | train loss: 26.8312
+Epoch: 4 [53248/20871 samples] | train loss: 26.7994
+Epoch: 4 [53760/21072 samples] | train loss: 26.7928
+Epoch: 4 [54272/21272 samples] | train loss: 26.8120
+Epoch: 4 [54784/21473 samples] | train loss: 26.8179
+Epoch: 4 [55296/21674 samples] | train loss: 26.7524
+Epoch: 4 [55808/21874 samples] | train loss: 26.7284
+Epoch: 4 [56320/22075 samples] | train loss: 26.7581
+Epoch: 4 [56832/22276 samples] | train loss: 26.7460
+Epoch: 4 [57344/22476 samples] | train loss: 26.7703
+Epoch: 4 [57856/22677 samples] | train loss: 26.7181
+Epoch: 4 [58368/22878 samples] | train loss: 26.7244
+Epoch: 4 [58880/23078 samples] | train loss: 26.7393
+Epoch: 4 [59392/23279 samples] | train loss: 26.7448
+Epoch: 4 [59904/23480 samples] | train loss: 26.7026
+Epoch: 4 [60416/23680 samples] | train loss: 26.6724
+Epoch: 4 [60928/23881 samples] | train loss: 26.7138
+Epoch: 4 [61440/24082 samples] | train loss: 26.6708
+Epoch: 4 [61952/24282 samples] | train loss: 26.6831
+Epoch: 4 [62464/24483 samples] | train loss: 26.6610
+Epoch: 4 [62976/24684 samples] | train loss: 26.7145
+Epoch: 4 [63488/24885 samples] | train loss: 26.7409
+Epoch: 4 [64000/25085 samples] | train loss: 26.7382
+Epoch: 4 [64512/25286 samples] | train loss: 26.7356
+Epoch: 4 [65024/25487 samples] | train loss: 26.7573
+Epoch: 4 [65536/25687 samples] | train loss: 26.8610
+Epoch: 4 [66048/25888 samples] | train loss: 26.8236
+Epoch: 4 [66560/26089 samples] | train loss: 26.7838
+Epoch: 4 [67072/26289 samples] | train loss: 26.8086
+Epoch: 4 [67584/26490 samples] | train loss: 26.8183
+Epoch: 4 [68096/26691 samples] | train loss: 26.8536
+Epoch: 4 [68608/26891 samples] | train loss: 26.8664
+Epoch: 4 [69120/27092 samples] | train loss: 26.8408
+Epoch: 4 [69632/27293 samples] | train loss: 26.9019
+Epoch: 4 [70144/27493 samples] | train loss: 26.9409
+Epoch: 4 [70656/27694 samples] | train loss: 26.9504
+Epoch: 4 [71168/27895 samples] | train loss: 26.9670
+Epoch: 4 [71680/28095 samples] | train loss: 26.9301
+Epoch: 4 [72192/28296 samples] | train loss: 26.9498
+Epoch: 4 [72704/28497 samples] | train loss: 26.9923
+Epoch: 4 [73216/28697 samples] | train loss: 26.9889
+Epoch: 4 [73728/28898 samples] | train loss: 27.0209
+Epoch: 4 [74240/29099 samples] | train loss: 26.9996
+Epoch: 4 [74752/29300 samples] | train loss: 26.9473
+Epoch: 4 [75264/29500 samples] | train loss: 26.9125
+Epoch: 4 [75776/29701 samples] | train loss: 26.9147
+Epoch: 4 [76288/29902 samples] | train loss: 26.9154
+Epoch: 4 [76800/30102 samples] | train loss: 26.8899
+Epoch: 4 [77312/30303 samples] | train loss: 26.8597
+Epoch: 4 [77824/30504 samples] | train loss: 26.8723
+Epoch: 4 [78336/30704 samples] | train loss: 26.8520
+Epoch: 4 [78848/30905 samples] | train loss: 26.9336
+Epoch: 4 [79360/31106 samples] | train loss: 27.0015
+Epoch: 4 [79872/31306 samples] | train loss: 27.0082
+Epoch: 4 [80384/31507 samples] | train loss: 27.0229
+Epoch: 4 [80896/31708 samples] | train loss: 26.9989
+Epoch: 4 [81408/31908 samples] | train loss: 27.0308
+Epoch: 4 [81920/32109 samples] | train loss: 27.0478
+Epoch: 4 [82432/32310 samples] | train loss: 27.0472
+Epoch: 4 [82944/32510 samples] | train loss: 27.0379
+Epoch: 4 [83456/32711 samples] | train loss: 26.9520
+Epoch: 4 [83968/32912 samples] | train loss: 26.9120
+Epoch: 4 [84480/33112 samples] | train loss: 26.8789
+Epoch: 4 [84992/33313 samples] | train loss: 26.8460
+Epoch: 4 [85504/33514 samples] | train loss: 26.8352
+Epoch: 4 [86016/33715 samples] | train loss: 26.8239
+Epoch: 4 [86528/33915 samples] | train loss: 26.8285
+Epoch: 4 [87040/34116 samples] | train loss: 26.8224
+Epoch: 4 [87552/34317 samples] | train loss: 26.7801
+Epoch: 4 [88064/34517 samples] | train loss: 26.8493
+Epoch: 4 [88576/34718 samples] | train loss: 26.8416
+Epoch: 4 [89088/34919 samples] | train loss: 26.8683
+Epoch: 4 [89600/35119 samples] | train loss: 26.8604
+Epoch: 4 [90112/35320 samples] | train loss: 26.8629
+Epoch: 4 [90624/35521 samples] | train loss: 26.8030
+Epoch: 4 [91136/35721 samples] | train loss: 26.7735
+Epoch: 4 [91648/35922 samples] | train loss: 26.8434
+Epoch: 4 [92160/36123 samples] | train loss: 26.8584
+Epoch: 4 [92672/36323 samples] | train loss: 26.8518
+Epoch: 4 [93184/36524 samples] | train loss: 26.8441
+Epoch: 4 [93696/36725 samples] | train loss: 26.8301
+Epoch: 4 [94208/36925 samples] | train loss: 26.8473
+Epoch: 4 [94720/37126 samples] | train loss: 26.8305
+Epoch: 4 [95232/37327 samples] | train loss: 26.8831
+Epoch: 4 [95744/37527 samples] | train loss: 26.8575
+Epoch: 4 [96256/37728 samples] | train loss: 26.8205
+Epoch: 4 [96768/37929 samples] | train loss: 26.8227
+Epoch: 4 [97280/38130 samples] | train loss: 26.8581
+Epoch: 4 [97792/38330 samples] | train loss: 26.8274
+Epoch: 4 [98304/38531 samples] | train loss: 26.8109
+Epoch: 4 [98816/38732 samples] | train loss: 26.8455
+Epoch: 4 [99328/38932 samples] | train loss: 26.7971
+Epoch: 4 [99840/39133 samples] | train loss: 26.7701
+Epoch: 4 [100352/39334 samples] | train loss: 26.7433
+Epoch: 4 [100864/39534 samples] | train loss: 26.7115
+Epoch: 4 [101376/39735 samples] | train loss: 26.7072
+Epoch: 4 [101888/39936 samples] | train loss: 26.7408
+Epoch: 4 [102400/40136 samples] | train loss: 26.7334
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60666     0]
+ [ 6249     0]]
+Accuracy = 0.9066128730773926
+Precision Survived = 0.9066128730773926
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7613938963429019
+Area Under the Precision Recall curve (AUPRC) = 0.24108419878371493
+F1 score (macro averaged) = 0.4755096762057046
+Epoch: 4 | Train Loss: 26.7486
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7612298302168279
+Area Under the Precision Recall curve (AUPRC) = 0.2666068641291471
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 4 | Validation Loss: 24.8526
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7609500216356201
+Area Under the Precision Recall curve (AUPRC) = 0.2934811227561322
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.8500
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 5 [    0/    0 samples] | train loss: 0.0000
+Epoch: 5 [  512/  201 samples] | train loss: 0.2428
+Epoch: 5 [ 1024/  401 samples] | train loss: 0.5106
+Epoch: 5 [ 1536/  602 samples] | train loss: 0.7485
+Epoch: 5 [ 2048/  803 samples] | train loss: 1.0763
+Epoch: 5 [ 2560/ 1003 samples] | train loss: 1.3597
+Epoch: 5 [ 3072/ 1204 samples] | train loss: 1.6070
+Epoch: 5 [ 3584/ 1405 samples] | train loss: 1.8741
+Epoch: 5 [ 4096/ 1605 samples] | train loss: 2.1835
+Epoch: 5 [ 4608/ 1806 samples] | train loss: 2.4565
+Epoch: 5 [ 5120/ 2007 samples] | train loss: 2.7617
+Epoch: 5 [ 5632/ 2207 samples] | train loss: 3.0436
+Epoch: 5 [ 6144/ 2408 samples] | train loss: 3.2996
+Epoch: 5 [ 6656/ 2609 samples] | train loss: 3.6044
+Epoch: 5 [ 7168/ 2810 samples] | train loss: 3.8555
+Epoch: 5 [ 7680/ 3010 samples] | train loss: 4.1030
+Epoch: 5 [ 8192/ 3211 samples] | train loss: 4.3398
+Epoch: 5 [ 8704/ 3412 samples] | train loss: 4.6402
+Epoch: 5 [ 9216/ 3612 samples] | train loss: 4.9053
+Epoch: 5 [ 9728/ 3813 samples] | train loss: 5.1352
+Epoch: 5 [10240/ 4014 samples] | train loss: 5.3988
+Epoch: 5 [10752/ 4214 samples] | train loss: 5.6417
+Epoch: 5 [11264/ 4415 samples] | train loss: 5.9350
+Epoch: 5 [11776/ 4616 samples] | train loss: 6.1985
+Epoch: 5 [12288/ 4816 samples] | train loss: 6.4463
+Epoch: 5 [12800/ 5017 samples] | train loss: 6.7017
+Epoch: 5 [13312/ 5218 samples] | train loss: 6.9593
+Epoch: 5 [13824/ 5418 samples] | train loss: 7.2389
+Epoch: 5 [14336/ 5619 samples] | train loss: 7.4469
+Epoch: 5 [14848/ 5820 samples] | train loss: 7.7478
+Epoch: 5 [15360/ 6020 samples] | train loss: 8.0121
+Epoch: 5 [15872/ 6221 samples] | train loss: 8.2751
+Epoch: 5 [16384/ 6422 samples] | train loss: 8.5445
+Epoch: 5 [16896/ 6622 samples] | train loss: 8.7954
+Epoch: 5 [17408/ 6823 samples] | train loss: 9.0637
+Epoch: 5 [17920/ 7024 samples] | train loss: 9.3612
+Epoch: 5 [18432/ 7225 samples] | train loss: 9.5879
+Epoch: 5 [18944/ 7425 samples] | train loss: 9.8488
+Epoch: 5 [19456/ 7626 samples] | train loss: 10.1014
+Epoch: 5 [19968/ 7827 samples] | train loss: 10.3260
+Epoch: 5 [20480/ 8027 samples] | train loss: 10.6031
+Epoch: 5 [20992/ 8228 samples] | train loss: 10.8513
+Epoch: 5 [21504/ 8429 samples] | train loss: 11.0579
+Epoch: 5 [22016/ 8629 samples] | train loss: 11.3448
+Epoch: 5 [22528/ 8830 samples] | train loss: 11.6035
+Epoch: 5 [23040/ 9031 samples] | train loss: 11.8838
+Epoch: 5 [23552/ 9231 samples] | train loss: 12.1410
+Epoch: 5 [24064/ 9432 samples] | train loss: 12.4388
+Epoch: 5 [24576/ 9633 samples] | train loss: 12.7032
+Epoch: 5 [25088/ 9833 samples] | train loss: 12.9838
+Epoch: 5 [25600/10034 samples] | train loss: 13.0290
+Epoch: 5 [26112/10235 samples] | train loss: 12.8015
+Epoch: 5 [26624/10435 samples] | train loss: 12.4442
+Epoch: 5 [27136/10636 samples] | train loss: 12.2029
+Epoch: 5 [27648/10837 samples] | train loss: 11.8587
+Epoch: 5 [28160/11037 samples] | train loss: 11.5040
+Epoch: 5 [28672/11238 samples] | train loss: 11.2113
+Epoch: 5 [29184/11439 samples] | train loss: 10.9724
+Epoch: 5 [29696/11640 samples] | train loss: 10.6845
+Epoch: 5 [30208/11840 samples] | train loss: 10.4335
+Epoch: 5 [30720/12041 samples] | train loss: 10.1783
+Epoch: 5 [31232/12242 samples] | train loss: 9.8579
+Epoch: 5 [31744/12442 samples] | train loss: 9.6182
+Epoch: 5 [32256/12643 samples] | train loss: 9.3981
+Epoch: 5 [32768/12844 samples] | train loss: 9.1592
+Epoch: 5 [33280/13044 samples] | train loss: 8.9211
+Epoch: 5 [33792/13245 samples] | train loss: 8.6507
+Epoch: 5 [34304/13446 samples] | train loss: 8.3346
+Epoch: 5 [34816/13646 samples] | train loss: 8.1053
+Epoch: 5 [35328/13847 samples] | train loss: 7.9077
+Epoch: 5 [35840/14048 samples] | train loss: 7.6401
+Epoch: 5 [36352/14248 samples] | train loss: 7.4118
+Epoch: 5 [36864/14449 samples] | train loss: 7.1050
+Epoch: 5 [37376/14650 samples] | train loss: 6.7873
+Epoch: 5 [37888/14850 samples] | train loss: 6.4847
+Epoch: 5 [38400/15051 samples] | train loss: 6.1641
+Epoch: 5 [38912/15252 samples] | train loss: 5.9244
+Epoch: 5 [39424/15452 samples] | train loss: 5.7119
+Epoch: 5 [39936/15653 samples] | train loss: 5.4589
+Epoch: 5 [40448/15854 samples] | train loss: 5.1951
+Epoch: 5 [40960/16055 samples] | train loss: 4.9859
+Epoch: 5 [41472/16255 samples] | train loss: 4.6570
+Epoch: 5 [41984/16456 samples] | train loss: 4.3945
+Epoch: 5 [42496/16657 samples] | train loss: 4.1426
+Epoch: 5 [43008/16857 samples] | train loss: 3.8577
+Epoch: 5 [43520/17058 samples] | train loss: 3.6246
+Epoch: 5 [44032/17259 samples] | train loss: 3.3699
+Epoch: 5 [44544/17459 samples] | train loss: 3.1504
+Epoch: 5 [45056/17660 samples] | train loss: 2.9136
+Epoch: 5 [45568/17861 samples] | train loss: 2.6733
+Epoch: 5 [46080/18061 samples] | train loss: 2.4039
+Epoch: 5 [46592/18262 samples] | train loss: 2.1638
+Epoch: 5 [47104/18463 samples] | train loss: 1.8700
+Epoch: 5 [47616/18663 samples] | train loss: 1.6434
+Epoch: 5 [48128/18864 samples] | train loss: 1.3828
+Epoch: 5 [48640/19065 samples] | train loss: 1.1063
+Epoch: 5 [49152/19265 samples] | train loss: 0.8698
+Epoch: 5 [49664/19466 samples] | train loss: 0.5389
+Epoch: 5 [50176/19667 samples] | train loss: 0.2661
+Epoch: 5 [50688/19867 samples] | train loss: 0.0000
+Epoch: 5 [51200/20068 samples] | train loss: 26.4072
+Epoch: 5 [51712/20269 samples] | train loss: 26.4519
+Epoch: 5 [52224/20470 samples] | train loss: 26.4790
+Epoch: 5 [52736/20670 samples] | train loss: 26.5275
+Epoch: 5 [53248/20871 samples] | train loss: 26.5079
+Epoch: 5 [53760/21072 samples] | train loss: 26.5158
+Epoch: 5 [54272/21272 samples] | train loss: 26.5356
+Epoch: 5 [54784/21473 samples] | train loss: 26.5517
+Epoch: 5 [55296/21674 samples] | train loss: 26.4818
+Epoch: 5 [55808/21874 samples] | train loss: 26.4687
+Epoch: 5 [56320/22075 samples] | train loss: 26.4980
+Epoch: 5 [56832/22276 samples] | train loss: 26.4962
+Epoch: 5 [57344/22476 samples] | train loss: 26.5069
+Epoch: 5 [57856/22677 samples] | train loss: 26.4256
+Epoch: 5 [58368/22878 samples] | train loss: 26.4341
+Epoch: 5 [58880/23078 samples] | train loss: 26.4441
+Epoch: 5 [59392/23279 samples] | train loss: 26.4488
+Epoch: 5 [59904/23480 samples] | train loss: 26.3956
+Epoch: 5 [60416/23680 samples] | train loss: 26.3763
+Epoch: 5 [60928/23881 samples] | train loss: 26.4208
+Epoch: 5 [61440/24082 samples] | train loss: 26.3827
+Epoch: 5 [61952/24282 samples] | train loss: 26.4010
+Epoch: 5 [62464/24483 samples] | train loss: 26.3928
+Epoch: 5 [62976/24684 samples] | train loss: 26.4372
+Epoch: 5 [63488/24885 samples] | train loss: 26.4673
+Epoch: 5 [64000/25085 samples] | train loss: 26.4707
+Epoch: 5 [64512/25286 samples] | train loss: 26.4570
+Epoch: 5 [65024/25487 samples] | train loss: 26.4780
+Epoch: 5 [65536/25687 samples] | train loss: 26.5731
+Epoch: 5 [66048/25888 samples] | train loss: 26.5340
+Epoch: 5 [66560/26089 samples] | train loss: 26.5039
+Epoch: 5 [67072/26289 samples] | train loss: 26.5286
+Epoch: 5 [67584/26490 samples] | train loss: 26.5409
+Epoch: 5 [68096/26691 samples] | train loss: 26.5948
+Epoch: 5 [68608/26891 samples] | train loss: 26.6082
+Epoch: 5 [69120/27092 samples] | train loss: 26.5679
+Epoch: 5 [69632/27293 samples] | train loss: 26.6367
+Epoch: 5 [70144/27493 samples] | train loss: 26.6669
+Epoch: 5 [70656/27694 samples] | train loss: 26.6815
+Epoch: 5 [71168/27895 samples] | train loss: 26.7068
+Epoch: 5 [71680/28095 samples] | train loss: 26.6840
+Epoch: 5 [72192/28296 samples] | train loss: 26.6937
+Epoch: 5 [72704/28497 samples] | train loss: 26.7350
+Epoch: 5 [73216/28697 samples] | train loss: 26.7162
+Epoch: 5 [73728/28898 samples] | train loss: 26.7344
+Epoch: 5 [74240/29099 samples] | train loss: 26.7175
+Epoch: 5 [74752/29300 samples] | train loss: 26.6620
+Epoch: 5 [75264/29500 samples] | train loss: 26.6321
+Epoch: 5 [75776/29701 samples] | train loss: 26.6277
+Epoch: 5 [76288/29902 samples] | train loss: 26.6187
+Epoch: 5 [76800/30102 samples] | train loss: 26.5953
+Epoch: 5 [77312/30303 samples] | train loss: 26.5682
+Epoch: 5 [77824/30504 samples] | train loss: 26.5666
+Epoch: 5 [78336/30704 samples] | train loss: 26.5544
+Epoch: 5 [78848/30905 samples] | train loss: 26.6409
+Epoch: 5 [79360/31106 samples] | train loss: 26.7143
+Epoch: 5 [79872/31306 samples] | train loss: 26.7226
+Epoch: 5 [80384/31507 samples] | train loss: 26.7183
+Epoch: 5 [80896/31708 samples] | train loss: 26.7108
+Epoch: 5 [81408/31908 samples] | train loss: 26.7537
+Epoch: 5 [81920/32109 samples] | train loss: 26.7571
+Epoch: 5 [82432/32310 samples] | train loss: 26.7474
+Epoch: 5 [82944/32510 samples] | train loss: 26.7343
+Epoch: 5 [83456/32711 samples] | train loss: 26.6549
+Epoch: 5 [83968/32912 samples] | train loss: 26.6190
+Epoch: 5 [84480/33112 samples] | train loss: 26.5875
+Epoch: 5 [84992/33313 samples] | train loss: 26.5704
+Epoch: 5 [85504/33514 samples] | train loss: 26.5592
+Epoch: 5 [86016/33715 samples] | train loss: 26.5487
+Epoch: 5 [86528/33915 samples] | train loss: 26.5610
+Epoch: 5 [87040/34116 samples] | train loss: 26.5565
+Epoch: 5 [87552/34317 samples] | train loss: 26.5004
+Epoch: 5 [88064/34517 samples] | train loss: 26.5641
+Epoch: 5 [88576/34718 samples] | train loss: 26.5629
+Epoch: 5 [89088/34919 samples] | train loss: 26.5876
+Epoch: 5 [89600/35119 samples] | train loss: 26.5870
+Epoch: 5 [90112/35320 samples] | train loss: 26.5944
+Epoch: 5 [90624/35521 samples] | train loss: 26.5312
+Epoch: 5 [91136/35721 samples] | train loss: 26.4956
+Epoch: 5 [91648/35922 samples] | train loss: 26.5780
+Epoch: 5 [92160/36123 samples] | train loss: 26.5799
+Epoch: 5 [92672/36323 samples] | train loss: 26.5819
+Epoch: 5 [93184/36524 samples] | train loss: 26.5703
+Epoch: 5 [93696/36725 samples] | train loss: 26.5527
+Epoch: 5 [94208/36925 samples] | train loss: 26.5754
+Epoch: 5 [94720/37126 samples] | train loss: 26.5562
+Epoch: 5 [95232/37327 samples] | train loss: 26.6074
+Epoch: 5 [95744/37527 samples] | train loss: 26.5842
+Epoch: 5 [96256/37728 samples] | train loss: 26.5460
+Epoch: 5 [96768/37929 samples] | train loss: 26.5452
+Epoch: 5 [97280/38130 samples] | train loss: 26.5676
+Epoch: 5 [97792/38330 samples] | train loss: 26.5343
+Epoch: 5 [98304/38531 samples] | train loss: 26.5282
+Epoch: 5 [98816/38732 samples] | train loss: 26.5545
+Epoch: 5 [99328/38932 samples] | train loss: 26.4868
+Epoch: 5 [99840/39133 samples] | train loss: 26.4537
+Epoch: 5 [100352/39334 samples] | train loss: 26.4397
+Epoch: 5 [100864/39534 samples] | train loss: 26.4146
+Epoch: 5 [101376/39735 samples] | train loss: 26.4102
+Epoch: 5 [101888/39936 samples] | train loss: 26.4303
+Epoch: 5 [102400/40136 samples] | train loss: 26.4305
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60707    20]
+ [ 6161    27]]
+Accuracy = 0.9076290726661682
+Precision Survived = 0.9078632593154907
+Precision Died = 0.5744680762290955
+Recall Survived = 0.999670684337616
+Recall Died = 0.004363283980637789
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7625389845165136
+Area Under the Precision Recall curve (AUPRC) = 0.26053266312131057
+F1 score (macro averaged) = 0.48010922440197634
+Epoch: 5 | Train Loss: 26.4356
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7628818265967294
+Area Under the Precision Recall curve (AUPRC) = 0.25592529994820346
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 5 | Validation Loss: 24.8375
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7615920633775749
+Area Under the Precision Recall curve (AUPRC) = 0.27872937196356196
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.8836
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 6 [    0/    0 samples] | train loss: 0.0000
+Epoch: 6 [  512/  201 samples] | train loss: 0.2348
+Epoch: 6 [ 1024/  401 samples] | train loss: 0.5077
+Epoch: 6 [ 1536/  602 samples] | train loss: 0.7427
+Epoch: 6 [ 2048/  803 samples] | train loss: 1.0665
+Epoch: 6 [ 2560/ 1003 samples] | train loss: 1.3549
+Epoch: 6 [ 3072/ 1204 samples] | train loss: 1.5973
+Epoch: 6 [ 3584/ 1405 samples] | train loss: 1.8643
+Epoch: 6 [ 4096/ 1605 samples] | train loss: 2.1775
+Epoch: 6 [ 4608/ 1806 samples] | train loss: 2.4501
+Epoch: 6 [ 5120/ 2007 samples] | train loss: 2.7440
+Epoch: 6 [ 5632/ 2207 samples] | train loss: 3.0202
+Epoch: 6 [ 6144/ 2408 samples] | train loss: 3.2686
+Epoch: 6 [ 6656/ 2609 samples] | train loss: 3.5582
+Epoch: 6 [ 7168/ 2810 samples] | train loss: 3.8090
+Epoch: 6 [ 7680/ 3010 samples] | train loss: 4.0704
+Epoch: 6 [ 8192/ 3211 samples] | train loss: 4.3063
+Epoch: 6 [ 8704/ 3412 samples] | train loss: 4.6095
+Epoch: 6 [ 9216/ 3612 samples] | train loss: 4.8696
+Epoch: 6 [ 9728/ 3813 samples] | train loss: 5.0986
+Epoch: 6 [10240/ 4014 samples] | train loss: 5.3613
+Epoch: 6 [10752/ 4214 samples] | train loss: 5.6111
+Epoch: 6 [11264/ 4415 samples] | train loss: 5.9069
+Epoch: 6 [11776/ 4616 samples] | train loss: 6.1644
+Epoch: 6 [12288/ 4816 samples] | train loss: 6.4120
+Epoch: 6 [12800/ 5017 samples] | train loss: 6.6665
+Epoch: 6 [13312/ 5218 samples] | train loss: 6.9303
+Epoch: 6 [13824/ 5418 samples] | train loss: 7.2054
+Epoch: 6 [14336/ 5619 samples] | train loss: 7.4008
+Epoch: 6 [14848/ 5820 samples] | train loss: 7.7034
+Epoch: 6 [15360/ 6020 samples] | train loss: 7.9650
+Epoch: 6 [15872/ 6221 samples] | train loss: 8.2393
+Epoch: 6 [16384/ 6422 samples] | train loss: 8.5070
+Epoch: 6 [16896/ 6622 samples] | train loss: 8.7556
+Epoch: 6 [17408/ 6823 samples] | train loss: 9.0167
+Epoch: 6 [17920/ 7024 samples] | train loss: 9.3111
+Epoch: 6 [18432/ 7225 samples] | train loss: 9.5262
+Epoch: 6 [18944/ 7425 samples] | train loss: 9.7800
+Epoch: 6 [19456/ 7626 samples] | train loss: 10.0226
+Epoch: 6 [19968/ 7827 samples] | train loss: 10.2433
+Epoch: 6 [20480/ 8027 samples] | train loss: 10.5073
+Epoch: 6 [20992/ 8228 samples] | train loss: 10.7479
+Epoch: 6 [21504/ 8429 samples] | train loss: 10.9544
+Epoch: 6 [22016/ 8629 samples] | train loss: 11.2276
+Epoch: 6 [22528/ 8830 samples] | train loss: 11.4840
+Epoch: 6 [23040/ 9031 samples] | train loss: 11.7691
+Epoch: 6 [23552/ 9231 samples] | train loss: 12.0251
+Epoch: 6 [24064/ 9432 samples] | train loss: 12.3260
+Epoch: 6 [24576/ 9633 samples] | train loss: 12.5882
+Epoch: 6 [25088/ 9833 samples] | train loss: 12.8648
+Epoch: 6 [25600/10034 samples] | train loss: 12.9125
+Epoch: 6 [26112/10235 samples] | train loss: 12.6783
+Epoch: 6 [26624/10435 samples] | train loss: 12.3113
+Epoch: 6 [27136/10636 samples] | train loss: 12.0700
+Epoch: 6 [27648/10837 samples] | train loss: 11.7182
+Epoch: 6 [28160/11037 samples] | train loss: 11.3844
+Epoch: 6 [28672/11238 samples] | train loss: 11.1132
+Epoch: 6 [29184/11439 samples] | train loss: 10.8462
+Epoch: 6 [29696/11640 samples] | train loss: 10.5589
+Epoch: 6 [30208/11840 samples] | train loss: 10.3207
+Epoch: 6 [30720/12041 samples] | train loss: 10.0499
+Epoch: 6 [31232/12242 samples] | train loss: 9.7257
+Epoch: 6 [31744/12442 samples] | train loss: 9.4951
+Epoch: 6 [32256/12643 samples] | train loss: 9.2775
+Epoch: 6 [32768/12844 samples] | train loss: 9.0515
+Epoch: 6 [33280/13044 samples] | train loss: 8.7966
+Epoch: 6 [33792/13245 samples] | train loss: 8.5166
+Epoch: 6 [34304/13446 samples] | train loss: 8.1985
+Epoch: 6 [34816/13646 samples] | train loss: 7.9863
+Epoch: 6 [35328/13847 samples] | train loss: 7.7945
+Epoch: 6 [35840/14048 samples] | train loss: 7.5483
+Epoch: 6 [36352/14248 samples] | train loss: 7.3183
+Epoch: 6 [36864/14449 samples] | train loss: 7.0050
+Epoch: 6 [37376/14650 samples] | train loss: 6.6880
+Epoch: 6 [37888/14850 samples] | train loss: 6.3905
+Epoch: 6 [38400/15051 samples] | train loss: 6.0820
+Epoch: 6 [38912/15252 samples] | train loss: 5.8569
+Epoch: 6 [39424/15452 samples] | train loss: 5.6392
+Epoch: 6 [39936/15653 samples] | train loss: 5.4040
+Epoch: 6 [40448/15854 samples] | train loss: 5.1292
+Epoch: 6 [40960/16055 samples] | train loss: 4.9348
+Epoch: 6 [41472/16255 samples] | train loss: 4.5980
+Epoch: 6 [41984/16456 samples] | train loss: 4.3341
+Epoch: 6 [42496/16657 samples] | train loss: 4.1090
+Epoch: 6 [43008/16857 samples] | train loss: 3.8337
+Epoch: 6 [43520/17058 samples] | train loss: 3.6013
+Epoch: 6 [44032/17259 samples] | train loss: 3.3444
+Epoch: 6 [44544/17459 samples] | train loss: 3.1132
+Epoch: 6 [45056/17660 samples] | train loss: 2.8832
+Epoch: 6 [45568/17861 samples] | train loss: 2.6447
+Epoch: 6 [46080/18061 samples] | train loss: 2.3693
+Epoch: 6 [46592/18262 samples] | train loss: 2.1357
+Epoch: 6 [47104/18463 samples] | train loss: 1.8649
+Epoch: 6 [47616/18663 samples] | train loss: 1.6534
+Epoch: 6 [48128/18864 samples] | train loss: 1.3680
+Epoch: 6 [48640/19065 samples] | train loss: 1.0980
+Epoch: 6 [49152/19265 samples] | train loss: 0.8419
+Epoch: 6 [49664/19466 samples] | train loss: 0.5291
+Epoch: 6 [50176/19667 samples] | train loss: 0.2625
+Epoch: 6 [50688/19867 samples] | train loss: 0.0000
+Epoch: 6 [51200/20068 samples] | train loss: 26.1332
+Epoch: 6 [51712/20269 samples] | train loss: 26.1802
+Epoch: 6 [52224/20470 samples] | train loss: 26.2023
+Epoch: 6 [52736/20670 samples] | train loss: 26.2501
+Epoch: 6 [53248/20871 samples] | train loss: 26.2215
+Epoch: 6 [53760/21072 samples] | train loss: 26.2110
+Epoch: 6 [54272/21272 samples] | train loss: 26.2318
+Epoch: 6 [54784/21473 samples] | train loss: 26.2355
+Epoch: 6 [55296/21674 samples] | train loss: 26.1605
+Epoch: 6 [55808/21874 samples] | train loss: 26.1426
+Epoch: 6 [56320/22075 samples] | train loss: 26.1710
+Epoch: 6 [56832/22276 samples] | train loss: 26.1718
+Epoch: 6 [57344/22476 samples] | train loss: 26.1838
+Epoch: 6 [57856/22677 samples] | train loss: 26.1194
+Epoch: 6 [58368/22878 samples] | train loss: 26.1292
+Epoch: 6 [58880/23078 samples] | train loss: 26.1184
+Epoch: 6 [59392/23279 samples] | train loss: 26.1182
+Epoch: 6 [59904/23480 samples] | train loss: 26.0542
+Epoch: 6 [60416/23680 samples] | train loss: 26.0276
+Epoch: 6 [60928/23881 samples] | train loss: 26.0759
+Epoch: 6 [61440/24082 samples] | train loss: 26.0354
+Epoch: 6 [61952/24282 samples] | train loss: 26.0495
+Epoch: 6 [62464/24483 samples] | train loss: 26.0268
+Epoch: 6 [62976/24684 samples] | train loss: 26.0793
+Epoch: 6 [63488/24885 samples] | train loss: 26.1184
+Epoch: 6 [64000/25085 samples] | train loss: 26.1263
+Epoch: 6 [64512/25286 samples] | train loss: 26.1052
+Epoch: 6 [65024/25487 samples] | train loss: 26.1222
+Epoch: 6 [65536/25687 samples] | train loss: 26.2293
+Epoch: 6 [66048/25888 samples] | train loss: 26.1866
+Epoch: 6 [66560/26089 samples] | train loss: 26.1483
+Epoch: 6 [67072/26289 samples] | train loss: 26.1630
+Epoch: 6 [67584/26490 samples] | train loss: 26.1744
+Epoch: 6 [68096/26691 samples] | train loss: 26.2240
+Epoch: 6 [68608/26891 samples] | train loss: 26.2434
+Epoch: 6 [69120/27092 samples] | train loss: 26.2112
+Epoch: 6 [69632/27293 samples] | train loss: 26.2811
+Epoch: 6 [70144/27493 samples] | train loss: 26.3135
+Epoch: 6 [70656/27694 samples] | train loss: 26.3432
+Epoch: 6 [71168/27895 samples] | train loss: 26.3674
+Epoch: 6 [71680/28095 samples] | train loss: 26.3472
+Epoch: 6 [72192/28296 samples] | train loss: 26.3797
+Epoch: 6 [72704/28497 samples] | train loss: 26.4222
+Epoch: 6 [73216/28697 samples] | train loss: 26.4233
+Epoch: 6 [73728/28898 samples] | train loss: 26.4421
+Epoch: 6 [74240/29099 samples] | train loss: 26.4274
+Epoch: 6 [74752/29300 samples] | train loss: 26.3714
+Epoch: 6 [75264/29500 samples] | train loss: 26.3309
+Epoch: 6 [75776/29701 samples] | train loss: 26.3293
+Epoch: 6 [76288/29902 samples] | train loss: 26.3296
+Epoch: 6 [76800/30102 samples] | train loss: 26.3082
+Epoch: 6 [77312/30303 samples] | train loss: 26.2832
+Epoch: 6 [77824/30504 samples] | train loss: 26.2814
+Epoch: 6 [78336/30704 samples] | train loss: 26.2608
+Epoch: 6 [78848/30905 samples] | train loss: 26.3513
+Epoch: 6 [79360/31106 samples] | train loss: 26.4176
+Epoch: 6 [79872/31306 samples] | train loss: 26.4162
+Epoch: 6 [80384/31507 samples] | train loss: 26.4247
+Epoch: 6 [80896/31708 samples] | train loss: 26.4151
+Epoch: 6 [81408/31908 samples] | train loss: 26.4496
+Epoch: 6 [81920/32109 samples] | train loss: 26.4580
+Epoch: 6 [82432/32310 samples] | train loss: 26.4684
+Epoch: 6 [82944/32510 samples] | train loss: 26.4497
+Epoch: 6 [83456/32711 samples] | train loss: 26.3607
+Epoch: 6 [83968/32912 samples] | train loss: 26.3285
+Epoch: 6 [84480/33112 samples] | train loss: 26.3029
+Epoch: 6 [84992/33313 samples] | train loss: 26.2905
+Epoch: 6 [85504/33514 samples] | train loss: 26.2776
+Epoch: 6 [86016/33715 samples] | train loss: 26.2658
+Epoch: 6 [86528/33915 samples] | train loss: 26.2807
+Epoch: 6 [87040/34116 samples] | train loss: 26.2766
+Epoch: 6 [87552/34317 samples] | train loss: 26.2382
+Epoch: 6 [88064/34517 samples] | train loss: 26.2988
+Epoch: 6 [88576/34718 samples] | train loss: 26.2927
+Epoch: 6 [89088/34919 samples] | train loss: 26.3139
+Epoch: 6 [89600/35119 samples] | train loss: 26.3031
+Epoch: 6 [90112/35320 samples] | train loss: 26.3043
+Epoch: 6 [90624/35521 samples] | train loss: 26.2500
+Epoch: 6 [91136/35721 samples] | train loss: 26.2141
+Epoch: 6 [91648/35922 samples] | train loss: 26.3018
+Epoch: 6 [92160/36123 samples] | train loss: 26.3049
+Epoch: 6 [92672/36323 samples] | train loss: 26.3095
+Epoch: 6 [93184/36524 samples] | train loss: 26.3043
+Epoch: 6 [93696/36725 samples] | train loss: 26.2865
+Epoch: 6 [94208/36925 samples] | train loss: 26.3143
+Epoch: 6 [94720/37126 samples] | train loss: 26.3069
+Epoch: 6 [95232/37327 samples] | train loss: 26.3608
+Epoch: 6 [95744/37527 samples] | train loss: 26.3519
+Epoch: 6 [96256/37728 samples] | train loss: 26.3155
+Epoch: 6 [96768/37929 samples] | train loss: 26.3022
+Epoch: 6 [97280/38130 samples] | train loss: 26.3281
+Epoch: 6 [97792/38330 samples] | train loss: 26.2997
+Epoch: 6 [98304/38531 samples] | train loss: 26.2837
+Epoch: 6 [98816/38732 samples] | train loss: 26.3088
+Epoch: 6 [99328/38932 samples] | train loss: 26.2675
+Epoch: 6 [99840/39133 samples] | train loss: 26.2394
+Epoch: 6 [100352/39334 samples] | train loss: 26.2309
+Epoch: 6 [100864/39534 samples] | train loss: 26.2065
+Epoch: 6 [101376/39735 samples] | train loss: 26.1999
+Epoch: 6 [101888/39936 samples] | train loss: 26.2319
+Epoch: 6 [102400/40136 samples] | train loss: 26.2395
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60523   169]
+ [ 6010   213]]
+Accuracy = 0.9076589941978455
+Precision Survived = 0.9096688628196716
+Precision Died = 0.5575916171073914
+Recall Survived = 0.9972154498100281
+Recall Died = 0.03422786295413971
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7718287919120692
+Area Under the Precision Recall curve (AUPRC) = 0.280415712964859
+F1 score (macro averaged) = 0.5079645474817738
+Epoch: 6 | Train Loss: 26.2019
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7587968463636495
+Area Under the Precision Recall curve (AUPRC) = 0.2556745729905422
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 6 | Validation Loss: 24.7842
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7560526829672687
+Area Under the Precision Recall curve (AUPRC) = 0.278789827507768
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.9138
+Number of records in test set: 21888
+Number of skipped batches: 1
+Number of training batches: 200.681640625
+Epoch: 7 [    0/    0 samples] | train loss: 0.0000
+Epoch: 7 [  512/  201 samples] | train loss: 0.2293
+Epoch: 7 [ 1024/  401 samples] | train loss: 0.4896
+Epoch: 7 [ 1536/  602 samples] | train loss: 0.7199
+Epoch: 7 [ 2048/  803 samples] | train loss: 1.0516
+Epoch: 7 [ 2560/ 1003 samples] | train loss: 1.3378
+Epoch: 7 [ 3072/ 1204 samples] | train loss: 1.5862
+Epoch: 7 [ 3584/ 1405 samples] | train loss: 1.8477
+Epoch: 7 [ 4096/ 1605 samples] | train loss: 2.1497
+Epoch: 7 [ 4608/ 1806 samples] | train loss: 2.4139
+Epoch: 7 [ 5120/ 2007 samples] | train loss: 2.7074
+Epoch: 7 [ 5632/ 2207 samples] | train loss: 2.9793
+Epoch: 7 [ 6144/ 2408 samples] | train loss: 3.2326
+Epoch: 7 [ 6656/ 2609 samples] | train loss: 3.5193
+Epoch: 7 [ 7168/ 2810 samples] | train loss: 3.7715
+Epoch: 7 [ 7680/ 3010 samples] | train loss: 4.0186
+Epoch: 7 [ 8192/ 3211 samples] | train loss: 4.2530
+Epoch: 7 [ 8704/ 3412 samples] | train loss: 4.5382
+Epoch: 7 [ 9216/ 3612 samples] | train loss: 4.7883
+Epoch: 7 [ 9728/ 3813 samples] | train loss: 5.0164
+Epoch: 7 [10240/ 4014 samples] | train loss: 5.2747
+Epoch: 7 [10752/ 4214 samples] | train loss: 5.5168
+Epoch: 7 [11264/ 4415 samples] | train loss: 5.8131
+Epoch: 7 [11776/ 4616 samples] | train loss: 6.0694
+Epoch: 7 [12288/ 4816 samples] | train loss: 6.3165
+Epoch: 7 [12800/ 5017 samples] | train loss: 6.5699
+Epoch: 7 [13312/ 5218 samples] | train loss: 6.8200
+Epoch: 7 [13824/ 5418 samples] | train loss: 7.0943
+Epoch: 7 [14336/ 5619 samples] | train loss: 7.2929
+Epoch: 7 [14848/ 5820 samples] | train loss: 7.5835
+Epoch: 7 [15360/ 6020 samples] | train loss: 7.8487
+Epoch: 7 [15872/ 6221 samples] | train loss: 8.1208
+Epoch: 7 [16384/ 6422 samples] | train loss: 8.3935
+Epoch: 7 [16896/ 6622 samples] | train loss: 8.6419
+Epoch: 7 [17408/ 6823 samples] | train loss: 8.9043
+Epoch: 7 [17920/ 7024 samples] | train loss: 9.1923
+Epoch: 7 [18432/ 7225 samples] | train loss: 9.4127
+Epoch: 7 [18944/ 7425 samples] | train loss: 9.6691
+Epoch: 7 [19456/ 7626 samples] | train loss: 9.9097
+Epoch: 7 [19968/ 7827 samples] | train loss: 10.1266
+Epoch: 7 [20480/ 8027 samples] | train loss: 10.3974
+Epoch: 7 [20992/ 8228 samples] | train loss: 10.6333
+Epoch: 7 [21504/ 8429 samples] | train loss: 10.8412
+Epoch: 7 [22016/ 8629 samples] | train loss: 11.1114
+Epoch: 7 [22528/ 8830 samples] | train loss: 11.3567
+Epoch: 7 [23040/ 9031 samples] | train loss: 11.6405
+Epoch: 7 [23552/ 9231 samples] | train loss: 11.8940
+Epoch: 7 [24064/ 9432 samples] | train loss: 12.1949
+Epoch: 7 [24576/ 9633 samples] | train loss: 12.4497
+Epoch: 7 [25088/ 9833 samples] | train loss: 12.7125
+Epoch: 7 [25600/10034 samples] | train loss: 12.7648
+Epoch: 7 [26112/10235 samples] | train loss: 12.5463
+Epoch: 7 [26624/10435 samples] | train loss: 12.1744
+Epoch: 7 [27136/10636 samples] | train loss: 11.9379
+Epoch: 7 [27648/10837 samples] | train loss: 11.6072
+Epoch: 7 [28160/11037 samples] | train loss: 11.2786
+Epoch: 7 [28672/11238 samples] | train loss: 10.9978
+Epoch: 7 [29184/11439 samples] | train loss: 10.7397
+Epoch: 7 [29696/11640 samples] | train loss: 10.4626
+Epoch: 7 [30208/11840 samples] | train loss: 10.2378
+Epoch: 7 [30720/12041 samples] | train loss: 9.9787
+Epoch: 7 [31232/12242 samples] | train loss: 9.6451
+Epoch: 7 [31744/12442 samples] | train loss: 9.4098
+Epoch: 7 [32256/12643 samples] | train loss: 9.2103
+Epoch: 7 [32768/12844 samples] | train loss: 8.9886
+Epoch: 7 [33280/13044 samples] | train loss: 8.7306
+Epoch: 7 [33792/13245 samples] | train loss: 8.4563
+Epoch: 7 [34304/13446 samples] | train loss: 8.1503
+Epoch: 7 [34816/13646 samples] | train loss: 7.9186
+Epoch: 7 [35328/13847 samples] | train loss: 7.7337
+Epoch: 7 [35840/14048 samples] | train loss: 7.4956
+Epoch: 7 [36352/14248 samples] | train loss: 7.2695
+Epoch: 7 [36864/14449 samples] | train loss: 6.9671
+Epoch: 7 [37376/14650 samples] | train loss: 6.6506
+Epoch: 7 [37888/14850 samples] | train loss: 6.3726
+Epoch: 7 [38400/15051 samples] | train loss: 6.0636
+Epoch: 7 [38912/15252 samples] | train loss: 5.8384
+Epoch: 7 [39424/15452 samples] | train loss: 5.6182
+Epoch: 7 [39936/15653 samples] | train loss: 5.3917
+Epoch: 7 [40448/15854 samples] | train loss: 5.1208
+Epoch: 7 [40960/16055 samples] | train loss: 4.9342
+Epoch: 7 [41472/16255 samples] | train loss: 4.5934
+Epoch: 7 [41984/16456 samples] | train loss: 4.3390
+Epoch: 7 [42496/16657 samples] | train loss: 4.0898
+Epoch: 7 [43008/16857 samples] | train loss: 3.8242
+Epoch: 7 [43520/17058 samples] | train loss: 3.5763
+Epoch: 7 [44032/17259 samples] | train loss: 3.3222
+Epoch: 7 [44544/17459 samples] | train loss: 3.0921
+Epoch: 7 [45056/17660 samples] | train loss: 2.8454
+Epoch: 7 [45568/17861 samples] | train loss: 2.6081
+Epoch: 7 [46080/18061 samples] | train loss: 2.3377
+Epoch: 7 [46592/18262 samples] | train loss: 2.1043
+Epoch: 7 [47104/18463 samples] | train loss: 1.8381
+Epoch: 7 [47616/18663 samples] | train loss: 1.6250
+Epoch: 7 [48128/18864 samples] | train loss: 1.3567
+Epoch: 7 [48640/19065 samples] | train loss: 1.0902
+Epoch: 7 [49152/19265 samples] | train loss: 0.8405
+Epoch: 7 [49664/19466 samples] | train loss: 0.5220
+Epoch: 7 [50176/19667 samples] | train loss: 0.2634
+Epoch: 7 [50688/19867 samples] | train loss: 0.0000
+Epoch: 7 [51200/20068 samples] | train loss: 25.9057
+Epoch: 7 [51712/20269 samples] | train loss: 25.9548
+Epoch: 7 [52224/20470 samples] | train loss: 25.9975
+Epoch: 7 [52736/20670 samples] | train loss: 26.0545
+Epoch: 7 [53248/20871 samples] | train loss: 26.0181
+Epoch: 7 [53760/21072 samples] | train loss: 26.0126
+Epoch: 7 [54272/21272 samples] | train loss: 26.0233
+Epoch: 7 [54784/21473 samples] | train loss: 26.0309
+Epoch: 7 [55296/21674 samples] | train loss: 25.9649
+Epoch: 7 [55808/21874 samples] | train loss: 25.9526
+Epoch: 7 [56320/22075 samples] | train loss: 25.9799
+Epoch: 7 [56832/22276 samples] | train loss: 25.9861
+Epoch: 7 [57344/22476 samples] | train loss: 25.9965
+Epoch: 7 [57856/22677 samples] | train loss: 25.9295
+Epoch: 7 [58368/22878 samples] | train loss: 25.9353
+Epoch: 7 [58880/23078 samples] | train loss: 25.9381
+Epoch: 7 [59392/23279 samples] | train loss: 25.9401
+Epoch: 7 [59904/23480 samples] | train loss: 25.8962
+Epoch: 7 [60416/23680 samples] | train loss: 25.8837
+Epoch: 7 [60928/23881 samples] | train loss: 25.9288
+Epoch: 7 [61440/24082 samples] | train loss: 25.8914
+Epoch: 7 [61952/24282 samples] | train loss: 25.9009
+Epoch: 7 [62464/24483 samples] | train loss: 25.8767
+Epoch: 7 [62976/24684 samples] | train loss: 25.9184
+Epoch: 7 [63488/24885 samples] | train loss: 25.9451
+Epoch: 7 [64000/25085 samples] | train loss: 25.9412
+Epoch: 7 [64512/25286 samples] | train loss: 25.9373
+Epoch: 7 [65024/25487 samples] | train loss: 25.9697
+Epoch: 7 [65536/25687 samples] | train loss: 26.0696
+Epoch: 7 [66048/25888 samples] | train loss: 26.0432
+Epoch: 7 [66560/26089 samples] | train loss: 26.0085
+Epoch: 7 [67072/26289 samples] | train loss: 26.0232
+Epoch: 7 [67584/26490 samples] | train loss: 26.0286
+Epoch: 7 [68096/26691 samples] | train loss: 26.0756
+Epoch: 7 [68608/26891 samples] | train loss: 26.0880
+Epoch: 7 [69120/27092 samples] | train loss: 26.0625
+Epoch: 7 [69632/27293 samples] | train loss: 26.1321
+Epoch: 7 [70144/27493 samples] | train loss: 26.1593
+Epoch: 7 [70656/27694 samples] | train loss: 26.1802
+Epoch: 7 [71168/27895 samples] | train loss: 26.2105
+Epoch: 7 [71680/28095 samples] | train loss: 26.1831
+Epoch: 7 [72192/28296 samples] | train loss: 26.2185
+Epoch: 7 [72704/28497 samples] | train loss: 26.2624
+Epoch: 7 [73216/28697 samples] | train loss: 26.2686
+Epoch: 7 [73728/28898 samples] | train loss: 26.3010
+Epoch: 7 [74240/29099 samples] | train loss: 26.2716
+Epoch: 7 [74752/29300 samples] | train loss: 26.2130
+Epoch: 7 [75264/29500 samples] | train loss: 26.1759
+Epoch: 7 [75776/29701 samples] | train loss: 26.1763
+Epoch: 7 [76288/29902 samples] | train loss: 26.1745
+Epoch: 7 [76800/30102 samples] | train loss: 26.1485
+Epoch: 7 [77312/30303 samples] | train loss: 26.1229
+Epoch: 7 [77824/30504 samples] | train loss: 26.1234
+Epoch: 7 [78336/30704 samples] | train loss: 26.0970
+Epoch: 7 [78848/30905 samples] | train loss: 26.1869
+Epoch: 7 [79360/31106 samples] | train loss: 26.2414
+Epoch: 7 [79872/31306 samples] | train loss: 26.2530
+Epoch: 7 [80384/31507 samples] | train loss: 26.2645
+Epoch: 7 [80896/31708 samples] | train loss: 26.2518
+Epoch: 7 [81408/31908 samples] | train loss: 26.2827
+Epoch: 7 [81920/32109 samples] | train loss: 26.2925
+Epoch: 7 [82432/32310 samples] | train loss: 26.3036
+Epoch: 7 [82944/32510 samples] | train loss: 26.2868
+Epoch: 7 [83456/32711 samples] | train loss: 26.1935
+Epoch: 7 [83968/32912 samples] | train loss: 26.1583
+Epoch: 7 [84480/33112 samples] | train loss: 26.1319
+Epoch: 7 [84992/33313 samples] | train loss: 26.1114
+Epoch: 7 [85504/33514 samples] | train loss: 26.0976
+Epoch: 7 [86016/33715 samples] | train loss: 26.0881
+Epoch: 7 [86528/33915 samples] | train loss: 26.0945
+Epoch: 7 [87040/34116 samples] | train loss: 26.0882
+Epoch: 7 [87552/34317 samples] | train loss: 26.0448
+Epoch: 7 [88064/34517 samples] | train loss: 26.1097
+Epoch: 7 [88576/34718 samples] | train loss: 26.1005
+Epoch: 7 [89088/34919 samples] | train loss: 26.1309
+Epoch: 7 [89600/35119 samples] | train loss: 26.1231
+Epoch: 7 [90112/35320 samples] | train loss: 26.1236
+Epoch: 7 [90624/35521 samples] | train loss: 26.0759
+Epoch: 7 [91136/35721 samples] | train loss: 26.0466
+Epoch: 7 [91648/35922 samples] | train loss: 26.1327
+Epoch: 7 [92160/36123 samples] | train loss: 26.1397
+Epoch: 7 [92672/36323 samples] | train loss: 26.1418
+Epoch: 7 [93184/36524 samples] | train loss: 26.1380
+Epoch: 7 [93696/36725 samples] | train loss: 26.1222
+Epoch: 7 [94208/36925 samples] | train loss: 26.1346
+Epoch: 7 [94720/37126 samples] | train loss: 26.1292
+Epoch: 7 [95232/37327 samples] | train loss: 26.1783
+Epoch: 7 [95744/37527 samples] | train loss: 26.1621
+Epoch: 7 [96256/37728 samples] | train loss: 26.1334
+Epoch: 7 [96768/37929 samples] | train loss: 26.1316
+Epoch: 7 [97280/38130 samples] | train loss: 26.1589
+Epoch: 7 [97792/38330 samples] | train loss: 26.1344
+Epoch: 7 [98304/38531 samples] | train loss: 26.1188
+Epoch: 7 [98816/38732 samples] | train loss: 26.1431
+Epoch: 7 [99328/38932 samples] | train loss: 26.0949
+Epoch: 7 [99840/39133 samples] | train loss: 26.0628
+Epoch: 7 [100352/39334 samples] | train loss: 26.0560
+Epoch: 7 [100864/39534 samples] | train loss: 26.0373
+Epoch: 7 [101376/39735 samples] | train loss: 26.0295
+Epoch: 7 [101888/39936 samples] | train loss: 26.0452
+Epoch: 7 [102400/40136 samples] | train loss: 26.0510
+Train Metrics:
+==> Mortality:
+Prediction probs:  (66915,)
+Prediction probs:  (66915, 2)
+Prediction:  (66915,)
+Y true:  (66915,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 66915
+N true: 66915
+Confusion matrix:
+[[60482   208]
+ [ 6002   223]]
+Accuracy = 0.9071956872940063
+Precision Survived = 0.909722626209259
+Precision Died = 0.517401397228241
+Recall Survived = 0.996572732925415
+Recall Died = 0.03582329303026199
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7803536386442127
+Area Under the Precision Recall curve (AUPRC) = 0.2811147679238016
+F1 score (macro averaged) = 0.5090882378481147
+Epoch: 7 | Train Loss: 25.9926
+Number of records in training set: 102749
+Number of skipped batches: 0
+Validation Metrics:
+==> Mortality:
+Prediction probs:  (14311,)
+Prediction probs:  (14311, 2)
+Prediction:  (14311,)
+Y true:  (14311,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14311
+N true: 14311
+Confusion matrix:
+[[12964     0]
+ [ 1347     0]]
+Accuracy = 0.9058765769004822
+Precision Survived = 0.9058765769004822
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7577913493296611
+Area Under the Precision Recall curve (AUPRC) = 0.2532371793218584
+F1 score (macro averaged) = 0.4753070577451879
+Epoch: 7 | Validation Loss: 24.9241
+Number of records in validation set: 22033
+Number of skipped batches: 0
+Test Metrics:
+==> Mortality:
+Prediction probs:  (14274,)
+Prediction probs:  (14274, 2)
+Prediction:  (14274,)
+Y true:  (14274,)
+Number of NaNs in y_true: 0
+Number of NaNs in prediction_probs: 0
+Number of NaNs in predictions: 0
+N predictions: 14274
+N true: 14274
+Confusion matrix:
+[[12851     0]
+ [ 1423     0]]
+Accuracy = 0.9003082513809204
+Precision Survived = 0.9003082513809204
+Precision Died = nan
+Recall Survived = 1.0
+Recall Died = 0.0
+Area Under the Receiver Operating Characteristic curve (AUROC) = 0.7570043440212877
+Area Under the Precision Recall curve (AUPRC) = 0.27662732735056
+F1 score (macro averaged) = 0.4737695852534562
+Test Loss: 25.9759
+Number of records in test set: 21888
+Number of skipped batches: 1
